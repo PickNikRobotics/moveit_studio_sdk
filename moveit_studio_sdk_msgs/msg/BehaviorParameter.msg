@@ -1,0 +1,10 @@
+string[] behavior_namespaces
+
+moveit_studio_sdk_msgs/BehaviorParameterDescription description
+
+string string_value
+geometry_msgs/PoseStamped pose_value
+float64 double_value
+int32 int_value
+bool bool_value
+sensor_msgs/JointState joint_state_value
