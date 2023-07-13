@@ -8,6 +8,7 @@
   <maintainer email="ashton.larkin@picknik.ai">Ashton Larkin</maintainer>
   <license>BSD-3-Clause</license>
 
+  <depend>moveit_msgs</depend>
   <depend>moveit_studio_sdk_msgs</depend>
   <depend>rclpy</depend>
 

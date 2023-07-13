@@ -23,7 +23,7 @@ class ObjectiveManager:
     __CANCEL_OBJECTIVE_SERVICE = "/cancel_objective"
 
     def __init__(self):
-        self._node = rclpy.create_node("ObjectiveManager")
+        self._node = rclpy.create_node("moveit_studio_objective_manager")
         self._execute_objective_client = self._node.create_client(
             ExecuteObjective, self.__EXECUTE_OBJECTIVE_SERVICE
         )
