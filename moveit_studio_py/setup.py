@@ -20,7 +20,7 @@ setup(
     entry_points={
         "console_scripts": [
             "start_stop_async = moveit_studio_py.start_stop_async:main",
-            "start_stop_blocking = moveit_studio_py.start_stop_blocking:main",
+            "start_blocking = moveit_studio_py.start_blocking:main",
         ],
     },
 )
