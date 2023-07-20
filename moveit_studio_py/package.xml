@@ -3,10 +3,12 @@
 <package format="3">
   <name>moveit_studio_py</name>
   <version>0.0.0</version>
-  <description>Python API for controlling MoveIt Studio Objectives.</description>
+  <description>Python API for MoveIt Studio SDK.</description>
   <author email="ashton.larkin@picknik.ai">Ashton Larkin</author>
   <maintainer email="ashton.larkin@picknik.ai">Ashton Larkin</maintainer>
   <license>BSD-3-Clause</license>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
 
   <depend>moveit_msgs</depend>
   <depend>moveit_studio_sdk_msgs</depend>
@@ -19,6 +21,6 @@
   <test_depend>python3-pytest-cov</test_depend>
 
   <export>
-    <build_type>ament_python</build_type>
+    <build_type>ament_cmake</build_type>
   </export>
 </package>

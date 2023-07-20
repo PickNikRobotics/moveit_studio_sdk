@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 import argparse
 import rclpy
 from moveit_studio_py.objective_manager import ObjectiveManager
