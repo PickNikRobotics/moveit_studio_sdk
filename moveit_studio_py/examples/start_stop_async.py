@@ -57,9 +57,15 @@ def done_cb(future: rclpy.task.Future) -> None:
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("objective_name", type=str, help="Name of the Objective to start.")
-    parser.add_argument("wait_time", type=int, default=0,
-        help="Time to wait (in seconds) before cancelling the Objective.")
+    parser.add_argument(
+        "objective_name", type=str, help="Name of the Objective to start."
+    )
+    parser.add_argument(
+        "wait_time",
+        type=int,
+        default=0,
+        help="Time to wait (in seconds) before cancelling the Objective.",
+    )
 
     args = parser.parse_args()
     if args.wait_time < 0:

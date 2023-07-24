@@ -37,8 +37,9 @@ from moveit_studio_py.objective_manager import ObjectiveManager
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("objective_name", type=str, help="Name of the Objective to start.")
-
+    parser.add_argument(
+        "objective_name", type=str, help="Name of the Objective to start."
+    )
     args = parser.parse_args()
 
     rclpy.init()
@@ -46,7 +47,9 @@ def main():
     objective_manager = ObjectiveManager()
 
     print(f"Starting {args.objective_name}.")
-    success, error_message = objective_manager.start_objective(args.objective_name, blocking=True)
+    success, error_message = objective_manager.start_objective(
+        args.objective_name, blocking=True
+    )
     if success:
         print("Objective executed successfully!")
     else:
