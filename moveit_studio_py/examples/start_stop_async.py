@@ -1,5 +1,36 @@
 #!/usr/bin/env python3
 
+# Starts an Objective asynchronously, and then stops the running Objective after waiting for a user-defined
+# number of seconds.
+
+# Copyright 2023 Picknik Inc.
+#
+# Redistribution and use in source and binary forms, with or without
+# modification, are permitted provided that the following conditions are met:
+#
+#    * Redistributions of source code must retain the above copyright
+#      notice, this list of conditions and the following disclaimer.
+#
+#    * Redistributions in binary form must reproduce the above copyright
+#      notice, this list of conditions and the following disclaimer in the
+#      documentation and/or other materials provided with the distribution.
+#
+#    * Neither the name of the Picknik Inc. nor the names of its
+#      contributors may be used to endorse or promote products derived from
+#      this software without specific prior written permission.
+#
+# THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+# AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+# IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+# ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE
+# LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+# CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+# SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+# INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+# CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+# ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+# POSSIBILITY OF SUCH DAMAGE.
+
 import argparse
 import rclpy
 import time
@@ -9,11 +40,17 @@ from moveit_studio_py.objective_manager import ObjectiveManager
 
 
 def done_cb(future: rclpy.task.Future) -> None:
+    """
+    Callback that is triggered when an Objective that was started asynchronously is done executing.
+
+    Args:
+        future: the Objective's future, which contains info about the completion status of the Objective.
+    """
     result = future.result()
     if result.error_code.val == MoveItErrorCodes.SUCCESS:
         print("Objective executed successfully!")
-    elif hasattr(result.error_code, "error_message"):
-        print(f"Error occurred: {result.error_code.error_message}")
+    elif result.error_message:
+        print(result.error_message)
     else:
         print(f"MoveItErrorCode Value: {result.error_code.val}")
 

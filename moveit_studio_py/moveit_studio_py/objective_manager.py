@@ -1,8 +1,30 @@
-# Copyright 2023 PickNik Inc.
-# All rights reserved.
+# Copyright 2023 Picknik Inc.
 #
-# Unauthorized copying of this code base via any medium is strictly prohibited.
-# Proprietary and confidential.
+# Redistribution and use in source and binary forms, with or without
+# modification, are permitted provided that the following conditions are met:
+#
+#    * Redistributions of source code must retain the above copyright
+#      notice, this list of conditions and the following disclaimer.
+#
+#    * Redistributions in binary form must reproduce the above copyright
+#      notice, this list of conditions and the following disclaimer in the
+#      documentation and/or other materials provided with the distribution.
+#
+#    * Neither the name of the Picknik Inc. nor the names of its
+#      contributors may be used to endorse or promote products derived from
+#      this software without specific prior written permission.
+#
+# THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+# AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+# IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+# ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE
+# LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+# CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+# SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+# INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+# CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+# ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+# POSSIBILITY OF SUCH DAMAGE.
 
 import threading
 import rclpy
@@ -22,13 +44,22 @@ class ObjectiveManager:
     __CANCEL_OBJECTIVE_SERVICE = "/cancel_objective"
 
     def __init__(self):
+        """
+        Constructor.
+        """
         self._node = rclpy.create_node("moveit_studio_objective_manager")
+
         self._execute_objective_client = self._node.create_client(
             ExecuteObjective, self.__EXECUTE_OBJECTIVE_SERVICE
         )
+        while not self._execute_objective_client.wait_for_service(timeout_sec=1.0):
+            self._node.get_logger().info(self.__EXECUTE_OBJECTIVE_SERVICE + ' service not available, waiting again...')
+
         self._cancel_objective_client = self._node.create_client(
             CancelObjective, self.__CANCEL_OBJECTIVE_SERVICE
         )
+        while not self._cancel_objective_client.wait_for_service(timeout_sec=1.0):
+            self._node.get_logger().info(self.__CANCEL_OBJECTIVE_SERVICE + ' service not available, waiting again...')
 
         self._executor = rclpy.executors.MultiThreadedExecutor()
         self._executor.add_node(self._node)
@@ -38,8 +69,13 @@ class ObjectiveManager:
         self._executor_thread.start()
 
     def __del__(self):
-        self._executor.shutdown()
-        self._executor_thread.join()
+        """
+        Destructor.
+        """
+        if hasattr(self, '_executor'):
+            self._executor.shutdown()
+        if hasattr(self, '_executor_thread'):
+            self._executor_thread.join()
 
     def start_objective(
         self,
@@ -69,13 +105,12 @@ class ObjectiveManager:
         request.objective_name = objective_name
         # TODO(adlarkin) support parameter_overrides:
         # https://github.com/PickNikRobotics/moveit_studio/blob/main/src/moveit_studio_msgs/moveit_studio_agent_msgs/srv/ExecuteObjective.srv#L7
-        self._execute_objective_client.wait_for_service()
         if blocking:
             result = self._execute_objective_client.call(request)
             if result.error_code.val == MoveItErrorCodes.SUCCESS:
                 return (True, "")
-            elif hasattr(result.error_code, "error_message"):
-                return (False, result.error_code.error_message)
+            elif result.error_message:
+                return (False, result.error_message)
             else:
                 return (False, f"MoveItErrorCode Value: {result.error_code.val}")
         else:
@@ -90,5 +125,6 @@ class ObjectiveManager:
         If no Objectives are currently running, this method does nothing.
         """
         request = CancelObjective.Request()
-        self._cancel_objective_client.wait_for_service()
-        self._cancel_objective_client.call(request)
+        result = self._cancel_objective_client.call(request)
+        if not result.status.success:
+            self._node.get_logger().warn(result.status.error_message)

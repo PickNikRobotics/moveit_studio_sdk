@@ -1,7 +1,6 @@
 services:
   sdk_standalone:
     image: studio_sdk_standalone:latest
-    privileged: true
     network_mode: host
     environment:
       - ROS_DOMAIN_ID

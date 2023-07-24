@@ -1,7 +1,7 @@
 # Docker setup for testing the MoveIt Studio SDK in a separate container
 
-The MoveIt Studio SDK can be used on a system that does not have MoveIt Studio running on it.
-The Docker setup in this directory provides a way to test this isolation.
+The MoveIt Studio SDK can be installed and run natively on a ROS 2 enabled system.
+The Docker setup in this directory provides a way to test this repository in isolation.
 
 First, build the image if you haven't already:
 
@@ -45,7 +45,7 @@ Start MoveIt Studio if it isn't running already.
 Be sure to use the same `ROS_DOMAIN_ID` that was used for the SDK container.
 
 Now, go back to the terminal inside of the SDK container.
-To ensure that the SDK container can communicate with the Studio container, run:
+To ensure that the SDK container can communicate with the MoveIt Studio container, run:
 
 ```
 ros2 service list
@@ -53,7 +53,7 @@ ros2 service list
 
 You should see a list of MoveIt Studio services.
 
-Let's now test the SDK to see if we can control Studio Objectives from this other container.
+Let's now test the SDK to see if we can execute and cancel MoveIt Studio Objectives from this other container.
 Source the SDK workspace that was built:
 
 ```
