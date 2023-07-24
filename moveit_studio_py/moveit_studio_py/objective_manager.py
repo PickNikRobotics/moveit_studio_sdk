@@ -53,13 +53,19 @@ class ObjectiveManager:
             ExecuteObjective, self.__EXECUTE_OBJECTIVE_SERVICE
         )
         while not self._execute_objective_client.wait_for_service(timeout_sec=1.0):
-            self._node.get_logger().info(self.__EXECUTE_OBJECTIVE_SERVICE + ' service not available, waiting again...')
+            self._node.get_logger().info(
+                self.__EXECUTE_OBJECTIVE_SERVICE
+                + " service not available, waiting again..."
+            )
 
         self._cancel_objective_client = self._node.create_client(
             CancelObjective, self.__CANCEL_OBJECTIVE_SERVICE
         )
         while not self._cancel_objective_client.wait_for_service(timeout_sec=1.0):
-            self._node.get_logger().info(self.__CANCEL_OBJECTIVE_SERVICE + ' service not available, waiting again...')
+            self._node.get_logger().info(
+                self.__CANCEL_OBJECTIVE_SERVICE
+                + " service not available, waiting again..."
+            )
 
         self._executor = rclpy.executors.MultiThreadedExecutor()
         self._executor.add_node(self._node)
@@ -72,9 +78,9 @@ class ObjectiveManager:
         """
         Destructor.
         """
-        if hasattr(self, '_executor'):
+        if hasattr(self, "_executor"):
             self._executor.shutdown()
-        if hasattr(self, '_executor_thread'):
+        if hasattr(self, "_executor_thread"):
             self._executor_thread.join()
 
     def start_objective(
@@ -114,9 +120,13 @@ class ObjectiveManager:
             else:
                 return (False, f"MoveItErrorCode Value: {result.error_code.val}")
         else:
+            if not async_callback:
+                return (
+                    False,
+                    "No done callback was defined, so the Objective was not triggered asynchronously.",
+                )
             future = self._execute_objective_client.call_async(request)
-            if async_callback:
-                future.add_done_callback(async_callback)
+            future.add_done_callback(async_callback)
             return (True, "")
 
     def stop_objective(self) -> None:

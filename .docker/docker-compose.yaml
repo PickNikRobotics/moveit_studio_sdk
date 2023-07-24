@@ -1,8 +1,0 @@
-services:
-  sdk_standalone:
-    image: studio_sdk_standalone:latest
-    network_mode: host
-    environment:
-      - ROS_DOMAIN_ID
-    volumes:
-      - ${SDK_WS}:/opt/sdk_ws/:rw
