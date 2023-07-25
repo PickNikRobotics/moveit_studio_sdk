@@ -52,19 +52,17 @@ class ObjectiveManager:
         self._execute_objective_client = self._node.create_client(
             ExecuteObjective, self.__EXECUTE_OBJECTIVE_SERVICE
         )
-        while not self._execute_objective_client.wait_for_service(timeout_sec=1.0):
-            self._node.get_logger().info(
-                self.__EXECUTE_OBJECTIVE_SERVICE
-                + " service not available, waiting again..."
+        if not self._execute_objective_client.wait_for_service(timeout_sec=10.0):
+            raise TimeoutError(
+                self.__EXECUTE_OBJECTIVE_SERVICE + " service not available."
             )
 
         self._cancel_objective_client = self._node.create_client(
             CancelObjective, self.__CANCEL_OBJECTIVE_SERVICE
         )
-        while not self._cancel_objective_client.wait_for_service(timeout_sec=1.0):
-            self._node.get_logger().info(
-                self.__CANCEL_OBJECTIVE_SERVICE
-                + " service not available, waiting again..."
+        if not self._cancel_objective_client.wait_for_service(timeout_sec=10.0):
+            raise TimeoutErrir(
+                self.__CANCEL_OBJECTIVE_SERVICE + " service not available."
             )
 
         self._executor = rclpy.executors.MultiThreadedExecutor()

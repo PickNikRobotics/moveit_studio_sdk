@@ -62,8 +62,8 @@ def main():
     )
     parser.add_argument(
         "wait_time",
-        type=int,
-        default=0,
+        type=float,
+        default=0.0,
         help="Time to wait (in seconds) before cancelling the Objective.",
     )
 
@@ -76,7 +76,7 @@ def main():
     objective_manager = ObjectiveManager()
 
     print(f"Starting {args.objective_name}.")
-    result = objective_manager.start_objective(
+    objective_manager.start_objective(
         args.objective_name, blocking=False, async_callback=done_cb
     )
 
