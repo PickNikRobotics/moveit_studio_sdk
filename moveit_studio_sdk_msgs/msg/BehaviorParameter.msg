@@ -1,6 +1,8 @@
-# The names of the behaviors that the parameter applies to.
-# Currently, each parameter always applies to exactly one behavior.
-string[] behavior_namespaces
+# Message type that represents a Behavior parameter.
+
+# The names of the Behaviors that the parameter applies to.
+# Currently, each parameter always applies to exactly one Behavior.
+string[] Behavior_namespaces
 
 # The description of the Behavior Parameter.
 moveit_studio_sdk_msgs/BehaviorParameterDescription description
