@@ -16,6 +16,7 @@ docker compose build
 ```
 
 Start MoveIt Studio if it isn't running already, making note of the `ROS_DOMAIN_ID` that's being used.
+The MoveIt Studio SDK Docker image being used here expects MoveIt Studio to use the default Cyclone DDS configuration.
 
 Next, set the `ROS_DOMAIN_ID` environment variable in the terminal where you plan to start the MoveIt Studio SDK container.
 The `ROS_DOMAIN_ID` being set here should match the `ROS_DOMAIN_ID` you are using for MoveIt Studio.
