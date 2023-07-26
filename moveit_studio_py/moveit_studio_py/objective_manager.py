@@ -107,8 +107,8 @@ class ObjectiveManager:
         """
         request = ExecuteObjective.Request()
         request.objective_name = objective_name
-        # TODO(adlarkin) support parameter_overrides:
-        # https://github.com/PickNikRobotics/moveit_studio/blob/main/src/moveit_studio_msgs/moveit_studio_agent_msgs/srv/ExecuteObjective.srv#L7
+        # TODO(adlarkin) support Objectives with parameters:
+        #   Look at the `parameter_overrides` field of moveit_studio_sdk_msgs/srv/ExecuteObjective.srv
         if blocking:
             result = self._execute_objective_client.call(request)
             if result.error_code.val == MoveItErrorCodes.SUCCESS:
