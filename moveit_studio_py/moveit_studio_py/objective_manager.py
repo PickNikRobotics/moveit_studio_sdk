@@ -31,6 +31,7 @@ import rclpy
 
 from collections.abc import Callable
 from moveit_msgs.msg import MoveItErrorCodes
+from moveit_studio_sdk_msgs.msg import BehaviorParameter
 from moveit_studio_sdk_msgs.srv import CancelObjective, ExecuteObjective
 
 
@@ -84,6 +85,7 @@ class ObjectiveManager:
     def start_objective(
         self,
         objective_name: str,
+        parameter_overrides: list[BehaviorParameter] = [],
         blocking: bool = True,
         async_callback: Callable[[rclpy.task.Future], None] = None,
     ) -> tuple[bool, str]:
@@ -92,6 +94,7 @@ class ObjectiveManager:
 
         Args:
             objective_name: the (string) name of the Objective to run.
+            parameter_overrides: Parameters to pass to the Objective, if any. The Objective will use its default values for parameters that aren't defined in this list.
             blocking: Whether this method call should block until Objective execution is complete or not. For long-running Objectives,
                       users can set this to False and make use of async_callback to get details about the execution result of the Objective.
             async_callback: A method that is triggered when Objective execution is done.
@@ -107,8 +110,7 @@ class ObjectiveManager:
         """
         request = ExecuteObjective.Request()
         request.objective_name = objective_name
-        # TODO(adlarkin) support Objectives with parameters:
-        #   Look at the `parameter_overrides` field of moveit_studio_sdk_msgs/srv/ExecuteObjective.srv
+        request.parameter_overrides = parameter_overrides
         if blocking:
             result = self._execute_objective_client.call(request)
             if result.error_code.val == MoveItErrorCodes.SUCCESS:

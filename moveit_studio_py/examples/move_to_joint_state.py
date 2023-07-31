@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-# Start an Objective and block until the Objective has completed execution.
+# Run the "Move to Joint State" Objective with the waypoint defined as a parameter override.
 
 # Copyright 2023 Picknik Inc.
 #
@@ -34,27 +34,35 @@ import argparse
 import rclpy
 
 from moveit_studio_py.objective_manager import ObjectiveManager
+from moveit_studio_sdk_msgs.msg import BehaviorParameter
+from moveit_studio_sdk_msgs.msg import BehaviorParameterDescription
 
 
 def main():
+    __OBJECTIVE_NAME = "Move to Joint State"
+
     parser = argparse.ArgumentParser()
-    parser.add_argument(
-        "objective_name", type=str, help="Name of the Objective to start."
-    )
+    parser.add_argument("waypoint_name", type=str, help="Name of waypoint to move to.")
     args = parser.parse_args()
+
+    # define the Objective's target waypoint via parameter override
+    waypoint_override = BehaviorParameter()
+    waypoint_override.description.name = "waypoint_name"
+    waypoint_override.description.type = BehaviorParameterDescription.TYPE_STRING
+    waypoint_override.string_value = args.waypoint_name
+    waypoint_override.behavior_namespaces = ["move_to_joint_state"]
 
     rclpy.init()
 
+    print(f"Starting {__OBJECTIVE_NAME}.")
     objective_manager = ObjectiveManager()
-
-    print(f"Starting {args.objective_name}.")
-    success, error_message = objective_manager.start_objective(
-        args.objective_name, blocking=True
+    success, error_msg = objective_manager.start_objective(
+        __OBJECTIVE_NAME, parameter_overrides=[waypoint_override], blocking=True
     )
     if success:
         print("Objective executed successfully!")
     else:
-        print(error_message)
+        print(error_msg)
 
     rclpy.shutdown()
 
