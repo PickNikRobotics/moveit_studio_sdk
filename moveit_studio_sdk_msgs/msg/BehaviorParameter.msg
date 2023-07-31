@@ -14,4 +14,4 @@ sensor_msgs/JointState joint_state_value
 
 # The names of the Behaviors that the parameter applies to.
 # Currently, each parameter always applies to exactly one Behavior.
-string[] Behavior_namespaces
+string[] behavior_namespaces
