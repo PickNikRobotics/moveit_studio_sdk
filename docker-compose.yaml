@@ -1,0 +1,7 @@
+services:
+  moveit_studio_sdk_standalone:
+    image: moveit-studio-sdk-standalone:latest
+    build: .
+    network_mode: host
+    environment:
+      - ROS_DOMAIN_ID
