@@ -56,8 +56,9 @@ def main():
 
     print(f"Starting {__OBJECTIVE_NAME}.")
     objective_manager = ObjectiveManager()
+    parameter_overrides = [waypoint_override]
     success, error_msg = objective_manager.start_objective(
-        __OBJECTIVE_NAME, parameter_overrides=[waypoint_override], blocking=True
+        __OBJECTIVE_NAME, parameter_overrides=parameter_overrides, blocking=True
     )
     if success:
         print("Objective executed successfully!")
