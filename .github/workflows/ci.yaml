@@ -11,12 +11,6 @@ jobs:
   build_docker:
     name: Docker build
     runs-on: ubuntu-22.04
-    strategy:
-      fail-fast: false
-      matrix:
-        compiler:
-          - { cc: clang, cxx: clang++ }
-          - { cc: gcc, cxx: g++ }
     steps:
       - name: Checkout source
         uses: actions/checkout@v3
@@ -30,6 +24,3 @@ jobs:
           tags: picknikrobotics/moveit-studio-sdk
           cache-from: type=gha
           cache-to: type=gha,mode=max
-          build-args: |
-            CC=${{ matrix.compiler.cc }}
-            CXX=${{ matrix.compiler.cxx }}
