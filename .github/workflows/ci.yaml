@@ -18,6 +18,8 @@ jobs:
           - { cc: clang, cxx: clang++ }
           - { cc: gcc, cxx: g++ }
     steps:
+      - name: Checkout source
+        uses: actions/checkout@v3
       - name: Build Dockerfile
         uses: docker/build-push-action@v3
         with:
