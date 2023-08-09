@@ -25,7 +25,9 @@ jobs:
         with:
           context: .
           push: false
-          tags: ghcr.io/picknikrobotics/moveit-studio-sdk
+          tags: picknikrobotics/moveit-studio-sdk
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
           build-args: |
             CC=${{ matrix.compiler.cc }}
             CXX=${{ matrix.compiler.cxx }}
