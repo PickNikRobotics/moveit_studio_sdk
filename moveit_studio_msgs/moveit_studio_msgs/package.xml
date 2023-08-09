@@ -1,0 +1,18 @@
+<package format="3">
+  <name>moveit_studio_msgs</name>
+  <version>1.0.0</version>
+  <description>Metapackage for MoveIt Studio message definitions</description>
+  <author email="joseph.schornak@picknik.ai">Joe Schornak</author>
+  <maintainer email="joseph.schornak@picknik.ai">Joe Schornak</maintainer>
+
+  <license>BSD-3-Clause</license>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+
+  <depend>moveit_studio_sdk_msgs</depend>
+  <depend>moveit_studio_vision_msgs</depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>
