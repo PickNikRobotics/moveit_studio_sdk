@@ -2,7 +2,7 @@
 
 string objective_name
 
-# Default values of named parameters in the predefined objective are be overridden by the values provided in `parameter_overrides` below.
+# Default values of named parameters in the predefined objective will be overridden by the values provided in `parameter_overrides` below.
 moveit_studio_sdk_msgs/BehaviorParameter[] parameter_overrides
 ---
 # result
