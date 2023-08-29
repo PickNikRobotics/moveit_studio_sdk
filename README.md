@@ -42,7 +42,7 @@ Let's now test the SDK to see if we can execute and cancel MoveIt Studio Objecti
 There are three example scripts provided:
 * `start_blocking.py`: starts an Objective and waits until the Objective finishes execution.
 * `start_stop_async.py`: starts an Objective, waits for a user-defined number of seconds, and then cancels the running Objective.
-* `move_to_joint_state.py`: runs the "Move to Joint State" Objective, using a parameter override to set the waypoint to move to.
+* `move_to_waypoint.py`: runs the "Move to Waypoint" Objective, using a parameter override to set the waypoint to move to.
 
 To run the `Open Gripper` Objective, let's use `start_blocking.py` since this Objective shouldn't take long to complete:
 
@@ -57,12 +57,12 @@ We will let this Objective run for 10 seconds:
 ros2 run moveit_studio_py start_stop_async.py "3 Waypoints Pick and Place" 10
 ```
 
-To run the `move_to_joint_state.py` example, a valid waypoint must be provided.
+To run the `move_to_waypoint.py` example, a valid waypoint must be provided.
 A list of pre-defined waypoints can be found in the ui's "Endpoint" tab.
 The following command would move the robot arm to the `Look at Left Table` waypoint:
 
 ```
-ros2 run moveit_studio_py move_to_joint_state.py "Look at Left Table"
+ros2 run moveit_studio_py move_to_waypoint.py "Look at Left Table"
 ```
 
 If you look at the `Objectives` tab in the MoveIt Studio UI, you should see these Objectives starting/stopping successfully.

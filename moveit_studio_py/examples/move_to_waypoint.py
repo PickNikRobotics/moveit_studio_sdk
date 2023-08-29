@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-# Run the "Move to Joint State" Objective with the waypoint defined as a parameter override.
+# Run the "Move to Waypoint" Objective with the waypoint defined as a parameter override.
 
 # Copyright 2023 Picknik Inc.
 #
@@ -39,7 +39,7 @@ from moveit_studio_sdk_msgs.msg import BehaviorParameterDescription
 
 
 def main():
-    __OBJECTIVE_NAME = "Move to Joint State"
+    __OBJECTIVE_NAME = "Move to Waypoint"
 
     parser = argparse.ArgumentParser()
     parser.add_argument("waypoint_name", type=str, help="Name of waypoint to move to.")
@@ -50,7 +50,7 @@ def main():
     waypoint_override.description.name = "waypoint_name"
     waypoint_override.description.type = BehaviorParameterDescription.TYPE_STRING
     waypoint_override.string_value = args.waypoint_name
-    waypoint_override.behavior_namespaces = ["move_to_joint_state"]
+    waypoint_override.behavior_namespaces = ["move_to_waypoint"]
 
     rclpy.init()
 
