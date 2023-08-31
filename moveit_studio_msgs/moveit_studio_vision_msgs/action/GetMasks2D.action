@@ -1,0 +1,15 @@
+# Goal
+
+# Image to segment.
+sensor_msgs/Image image
+
+# Segmentation parameters. They are stored as key-value pairs because they are 
+# specific to the segmentation model being run by the action server.
+moveit_studio_sdk_msgs/BehaviorParameter[] parameters
+
+---
+# Result
+moveit_studio_vision_msgs/Mask2DArray masks
+
+---
+# Feedback
