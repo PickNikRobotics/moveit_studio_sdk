@@ -20,7 +20,7 @@ ament_python_install_package(
 install(PROGRAMS
   examples/start_blocking.py
   examples/start_stop_async.py
-  examples/move_to_joint_state.py
+  examples/move_to_waypoint.py
   DESTINATION lib/${PROJECT_NAME}
 )
 
