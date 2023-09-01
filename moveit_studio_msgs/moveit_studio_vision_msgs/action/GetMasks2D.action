@@ -9,7 +9,7 @@ moveit_studio_sdk_msgs/BehaviorParameter[] parameters
 
 ---
 # Result
-moveit_studio_vision_msgs/Mask2DArray masks
+moveit_studio_vision_msgs/Mask2D[] masks
 
 ---
 # Feedback

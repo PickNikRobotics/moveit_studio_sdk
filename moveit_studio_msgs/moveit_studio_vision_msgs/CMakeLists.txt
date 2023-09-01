@@ -19,7 +19,6 @@ set(msg_files
   "msg/GraspableFace.msg"
   "msg/GraspableObject.msg"
   "msg/Mask2D.msg"
-  "msg/Mask2DArray.msg"
   "msg/ObjectDetection.msg"
   "msg/ObjectDetectionArray.msg"
   "msg/PointCloudPCD.msg"
