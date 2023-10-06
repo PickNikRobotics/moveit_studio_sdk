@@ -24,6 +24,8 @@ set(msg_files
 set(srv_files
   "srv/CancelObjective.srv"
   "srv/ExecuteObjective.srv"
+  "srv/RetrieveBehaviorParameter.srv"
+  "srv/SetBehaviorParameter.srv"
 )
 
 set(action_files

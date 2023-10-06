@@ -1,0 +1,4 @@
+# Service which sets user input for behavior parameters
+moveit_studio_sdk_msgs/BehaviorParameter parameter
+---
+moveit_studio_sdk_msgs/RequestStatus status
