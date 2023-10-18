@@ -7,7 +7,7 @@
 std_msgs/Header header
 
 # Indices of the points in the segmented point cloud that belong to this mask.
-uint32[] point_indices
+int32[] point_indices
 
 # Classification hypotheses sorted from most to least likely.
 # If the mask was not classified, this field is empty.
