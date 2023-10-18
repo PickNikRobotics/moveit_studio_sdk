@@ -5,8 +5,6 @@
 
 # The position of the top-left corner of the mask within the segmented image. 
 # (0, 0) is the top-left corner of the segmented image.
-# The segmented image should be referenced in the containing image segmenter
-# message.
 int32 x
 int32 y
 
@@ -14,4 +12,5 @@ int32 y
 # The image pixels can be encoded as:
 #   - Integer: only non-zero pixels belong to the mask.
 #   - Floating point: each pixel has a probability of belonging to the mask.
+# The timestamp and frame_id of the mask image header match those of the segmented image header.
 sensor_msgs/Image pixels
