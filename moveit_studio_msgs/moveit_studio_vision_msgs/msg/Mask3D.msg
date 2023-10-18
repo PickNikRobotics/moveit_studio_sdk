@@ -11,4 +11,4 @@ uint32[] point_indices
 
 # Classification hypotheses sorted from most to least likely.
 # If the mask was not classified, this field is empty.
-ClassHypothesis[] class_hypotheses
+vision_msgs/ObjectHypothesis[] class_hypotheses

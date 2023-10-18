@@ -14,9 +14,9 @@ find_package(rosidl_default_generators REQUIRED)
 find_package(sensor_msgs REQUIRED)
 find_package(shape_msgs REQUIRED)
 find_package(std_msgs REQUIRED)
+find_package(vision_msgs REQUIRED)
 
 set(msg_files
-  "msg/ClassHypothesis.msg"
   "msg/GraspableFace.msg"
   "msg/GraspableObject.msg"
   "msg/Mask2D.msg"
@@ -40,6 +40,7 @@ rosidl_generate_interfaces(${PROJECT_NAME}
     sensor_msgs
     shape_msgs
     std_msgs
+    vision_msgs
 )
 
 ament_export_dependencies(rosidl_default_runtime)
