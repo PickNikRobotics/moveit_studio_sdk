@@ -16,9 +16,11 @@ find_package(shape_msgs REQUIRED)
 find_package(std_msgs REQUIRED)
 
 set(msg_files
+  "msg/ClassHypothesis.msg"
   "msg/GraspableFace.msg"
   "msg/GraspableObject.msg"
   "msg/Mask2D.msg"
+  "msg/Mask3D.msg"
   "msg/ObjectDetection.msg"
   "msg/ObjectDetectionArray.msg"
   "msg/PointCloudPCD.msg"
