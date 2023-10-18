@@ -14,3 +14,7 @@ int32 y
 #   - Floating point: each pixel has a probability of belonging to the mask.
 # The stamp and frame_id of the mask image header match those of the segmented image header.
 sensor_msgs/Image pixels
+
+# Classification hypotheses sorted from most to least likely.
+# If the mask was not classified, this field is empty.
+vision_msgs/ObjectHypothesis[] class_hypotheses
