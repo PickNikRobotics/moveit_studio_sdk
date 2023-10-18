@@ -12,5 +12,5 @@ int32 y
 # The image pixels can be encoded as:
 #   - Integer: only non-zero pixels belong to the mask.
 #   - Floating point: each pixel has a probability of belonging to the mask.
-# The timestamp and frame_id of the mask image header match those of the segmented image header.
+# The stamp and frame_id of the mask image header match those of the segmented image header.
 sensor_msgs/Image pixels
