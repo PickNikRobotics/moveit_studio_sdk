@@ -1,8 +1,11 @@
 # This message describes a solid rigid object which a robot can grasp.
 
 # The id and label of the object
-int32 id
+# Would an assigned numerical ID be helpful? Perhaps follow moveit's standard or
+# currently: 0 = uninitialized, -1 = delete ... 1 = default?
+int32 id = 0 
 string label
+#string id
 
 # The object's pose relative to specified frame.
 # The poses of the surfaces, meshes, and primitives are defined relative to this pose.
@@ -15,7 +18,14 @@ shape_msgs/SolidPrimitive bounding_volume
 # A vector of surfaces which represents flat faces on the object.
 moveit_studio_vision_msgs/GraspableFace[] surfaces
 
-# A vector of "part" messages. Each includes either a primitive shape or a mesh, along with a pose
-# and a label.
-moveit_studio_vision_msgs/ObjectPartPrimitive[] primitive_parts
-moveit_studio_vision_msgs/ObjectPartMesh[] mesh_parts
+# Primitives
+shape_msgs/SolidPrimitive[] primitives
+geometry_msgs/Pose[] primitive_poses
+
+# Meshes
+shape_msgs/Mesh[] meshes
+geometry_msgs/Pose[] mesh_poses
+
+# Subframes. These correspond to affordances and their poses
+string[] subframe_names
+geometry_msgs/Pose[] subframe_poses
