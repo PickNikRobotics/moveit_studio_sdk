@@ -1,0 +1,12 @@
+# Service definition for setting a GraspableObject in a scene.
+# This can be used to create a new GraspableObject, or to modify an existing GraspableObject.
+
+# The GraspableObject to set in the scene.
+# If this is being used to modify an existing GraspableObject, graspable_object.id should match the ID of the GraspableObject to be modified.
+moveit_studio_vision_msgs/GraspableObject graspable_object
+---
+# Whether setting the GraspableObject was successful (True) or not (False).
+bool success
+
+# An error message if setting the GraspableObject failed (empty string otherwise)
+string error_message
