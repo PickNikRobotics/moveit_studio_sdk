@@ -15,5 +15,7 @@ shape_msgs/SolidPrimitive bounding_volume
 # A vector of surfaces which represents flat faces on the object.
 moveit_studio_vision_msgs/GraspableFace[] surfaces
 
-# A vector of "part" messages. Each includes either a primitive shape or a mesh, along with a pose.
-moveit_studio_vision_msgs/ObjectPart[] parts
+# A vector of "part" messages. Each includes either a primitive shape or a mesh, along with a pose
+# and a label.
+moveit_studio_vision_msgs/ObjectPartPrimitive[] primitive_parts
+moveit_studio_vision_msgs/ObjectPartMesh[] mesh_parts
