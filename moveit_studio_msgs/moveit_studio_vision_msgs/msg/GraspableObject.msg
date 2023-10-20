@@ -1,9 +1,8 @@
 # This message describes a solid rigid object which a robot can grasp.
 
 # The id and label of the object
-# Would an assigned numerical ID be helpful? Perhaps follow moveit's standard or
-# currently: 0 = uninitialized, -1 = delete ... 1 = default?
-int32 id = 0 
+# id: 0 = default, -1 = delete
+int32 id
 string label
 #string id
 
