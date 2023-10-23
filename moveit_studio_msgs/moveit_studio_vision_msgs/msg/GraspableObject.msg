@@ -4,7 +4,6 @@
 # id: 0 = default, -1 = delete
 int32 id
 string label
-#string id
 
 # The object's pose relative to specified frame.
 # The poses of the surfaces, meshes, and primitives are defined relative to this pose.
