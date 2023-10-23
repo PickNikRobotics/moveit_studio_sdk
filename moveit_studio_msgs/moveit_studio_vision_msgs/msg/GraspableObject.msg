@@ -16,14 +16,17 @@ shape_msgs/SolidPrimitive bounding_volume
 # A vector of surfaces which represents flat faces on the object.
 moveit_studio_vision_msgs/GraspableFace[] surfaces
 
-# Primitives
+# Primitives. A vector of solid geometric primitives which describe the shape of the object.
+# The primitive_poses must be the same length, where each pose is relative to the Object's pose.frame_id
 shape_msgs/SolidPrimitive[] primitives
 geometry_msgs/Pose[] primitive_poses
 
-# Meshes
+# Meshes. A vector of meshes which describe the shape of the object.
+# The mesh_poses must be the same length, where each pose is relative to the Object's pose.frame_id
 shape_msgs/Mesh[] meshes
 geometry_msgs/Pose[] mesh_poses
 
-# Subframes. These correspond to affordances and their poses
+# Subframes. These correspond to affordances and their poses.
+# The subframe_poses must be the same length, where each pose is relative to the Object's pose.frame_id
 string[] subframe_names
 geometry_msgs/Pose[] subframe_poses
