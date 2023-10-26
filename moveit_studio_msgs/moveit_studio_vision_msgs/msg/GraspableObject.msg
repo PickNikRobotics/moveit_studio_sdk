@@ -16,10 +16,6 @@ int32 id
 # The timestamp is when the transform for the object was last calculated.
 geometry_msgs/TransformStamped transform
 
-# The object's pose relative to the header frame.
-# The poses of the surfaces, meshes, and primitives are defined relative to this pose.
-geometry_msgs/PoseStamped pose # TODO remove.
-
 # A solid primitive which represents the maximum extent of the object.
 # The origin of this primitive is coincident with the object's pose.
 shape_msgs/SolidPrimitive bounding_volume
