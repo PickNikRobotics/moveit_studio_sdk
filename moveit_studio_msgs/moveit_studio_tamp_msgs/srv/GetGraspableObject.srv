@@ -1,0 +1,13 @@
+# Service definition for getting a GraspableObject in a scene.
+
+# The ID of the GraspableObject
+string id
+---
+# Whether getting the GraspableObject with the specified ID was successful (True) or not (False).
+bool success
+
+# An error message if getting the GraspableObject failed (empty string otherwise)
+string error_message
+
+# The GraspableObject (this is not set if success is False)
+moveit_studio_vision_msgs/GraspableObject graspable_object
