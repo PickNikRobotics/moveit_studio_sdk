@@ -1,13 +1,7 @@
 # This message describes a solid rigid object which a robot can grasp.
 
-# The header defines the object's timestamp along with the base frame that the
-# object's poses are relative to.
-#std_msgs/Header header
-
-# The name or classification of the object
-string label
-# The specific numeric ID of the object. id: 0 = default, -1 = delete
-int32 id
+# The name or identifier of the object
+string id
 
 # TransformStamped message defining the Pose and frames of the object.
 # The frame_id is the frame the object is relative to.
