@@ -30,6 +30,4 @@ shape_msgs/Mesh[] meshes
 geometry_msgs/Pose[] mesh_poses
 
 # Subframes. These correspond to affordances and their poses (relative to the object's pose).
-string[] subframe_names
-geometry_msgs/Pose[] subframe_poses
-#Subframe[] subframes
+ObjectSubframe[] subframes

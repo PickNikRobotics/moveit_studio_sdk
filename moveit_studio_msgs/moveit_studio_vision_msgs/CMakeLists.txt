@@ -23,6 +23,7 @@ set(msg_files
   "msg/Mask3D.msg"
   "msg/ObjectDetection.msg"
   "msg/ObjectDetectionArray.msg"
+  "msg/ObjectSubframe.msg"
   "msg/PointCloudPCD.msg"
 )
 
