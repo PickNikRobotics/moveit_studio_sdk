@@ -1,14 +1,16 @@
 # This message describes a solid rigid object which a robot can grasp.
 
+# The header defines the object's timestamp along with the base frame to use
+# when creating a TF to the object instance.
+std_msgs/Header header
+
 # The name or identifier of the object
+# This is what is used as the `child_frame_id` when creating a TF to this object.
 string id
 
-# TransformStamped message defining the Pose and frames of the object.
-# The frame_id is the frame the object is relative to.
-# The child_id is the object's own reference frame, which subframes are relative to.
-# The transform is the Pose of the object relative to the frame_id.
-# The timestamp is when the transform for the object was last calculated.
-geometry_msgs/TransformStamped transform
+# The pose of the object relative to the frame specified in the header. This is 
+# used to create the transform to the object, from which all subframes are relative to.
+geometry_msgs/Pose pose
 
 # A solid primitive which represents the maximum extent of the object.
 # The origin of this primitive is coincident with the object's pose.
@@ -27,7 +29,7 @@ geometry_msgs/Pose[] primitive_poses
 shape_msgs/Mesh[] meshes
 geometry_msgs/Pose[] mesh_poses
 
-# Subframes. These correspond to affordances and their poses.
-# The subframe_poses must be the same length, where each pose is relative to the transform.child_id
+# Subframes. These correspond to affordances and their poses (relative to the object's pose).
 string[] subframe_names
 geometry_msgs/Pose[] subframe_poses
+#Subframe[] subframes
