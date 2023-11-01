@@ -9,7 +9,7 @@ std_msgs/Header header
 string id
 
 # The pose of the object relative to the frame specified in the header. This is 
-# used to create the transform to the object, from which all subframes are relative to.
+# used to create the transform to the object, from which all subframe poses are relative to.
 geometry_msgs/Pose pose
 
 # A solid primitive which represents the maximum extent of the object.
@@ -20,13 +20,13 @@ shape_msgs/SolidPrimitive bounding_volume
 moveit_studio_vision_msgs/GraspableFace[] surfaces
 
 # Primitives. A vector of solid geometric primitives which describe the shape of the object.
-# The primitive_poses must be the same length, where each pose is relative to the transform.child_id
 shape_msgs/SolidPrimitive[] primitives
+# The primitive_poses must be the same length as primitives, where each pose is relative to the objects pose.
 geometry_msgs/Pose[] primitive_poses
 
 # Meshes. A vector of meshes which describe the shape of the object.
-# The mesh_poses must be the same length, where each pose is relative to the transform.child_id
 shape_msgs/Mesh[] meshes
+# The mesh_poses must be the same length as meshes, where each pose is relative to the objects pose.
 geometry_msgs/Pose[] mesh_poses
 
 # Subframes. These correspond to affordances and their poses (relative to the object's pose).
