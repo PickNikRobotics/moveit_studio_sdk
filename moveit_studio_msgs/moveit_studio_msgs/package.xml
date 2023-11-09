@@ -10,7 +10,6 @@
   <buildtool_depend>ament_cmake</buildtool_depend>
 
   <depend>moveit_studio_sdk_msgs</depend>
-  <depend>moveit_studio_tamp_msgs</depend>
   <depend>moveit_studio_vision_msgs</depend>
 
   <export>
