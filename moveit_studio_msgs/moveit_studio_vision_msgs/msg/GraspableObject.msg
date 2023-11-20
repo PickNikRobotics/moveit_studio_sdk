@@ -31,3 +31,8 @@ geometry_msgs/Pose[] mesh_poses
 
 # Subframes. These correspond to affordances and their poses (relative to the object's pose).
 ObjectSubframe[] subframes
+
+# The four coeffcients of a plane estimated from all object points.
+# The plane is relative to the header's frame ID.
+float32[] main_plane_coefficients
+
