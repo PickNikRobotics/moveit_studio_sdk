@@ -34,3 +34,6 @@ geometry_msgs/Pose[] mesh_poses
 
 # Subframes. These correspond to affordances and their poses (relative to the object's pose).
 ObjectSubframe[] subframes
+
+# Optional color of the object.
+moveit_msgs/ObjectColor object_color

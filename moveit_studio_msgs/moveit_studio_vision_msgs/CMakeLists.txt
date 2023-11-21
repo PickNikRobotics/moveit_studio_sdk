@@ -9,6 +9,7 @@ endif()
 find_package(ament_cmake REQUIRED)
 find_package(builtin_interfaces REQUIRED)
 find_package(geometry_msgs REQUIRED)
+find_package(moveit_msgs REQUIRED)
 find_package(moveit_studio_sdk_msgs REQUIRED)
 find_package(rosidl_default_generators REQUIRED)
 find_package(sensor_msgs REQUIRED)
@@ -37,6 +38,7 @@ rosidl_generate_interfaces(${PROJECT_NAME}
   DEPENDENCIES
     builtin_interfaces  
     geometry_msgs
+    moveit_msgs
     moveit_studio_sdk_msgs
     sensor_msgs
     shape_msgs
