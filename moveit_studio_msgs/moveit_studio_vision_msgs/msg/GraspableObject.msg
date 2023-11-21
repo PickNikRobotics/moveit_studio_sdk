@@ -8,6 +8,9 @@ std_msgs/Header header
 # This is what is used as the `child_frame_id` when creating a TF to this object.
 string id
 
+# Optional class or name of the object type.
+string object_type
+
 # The pose of the object relative to the frame specified in the header. This is 
 # used to create the transform to the object, from which all subframe poses are relative to.
 geometry_msgs/Pose pose
