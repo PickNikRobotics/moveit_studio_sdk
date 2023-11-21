@@ -19,6 +19,7 @@ set(msg_files
   "msg/BehaviorParameterDescription.msg"
   "msg/BehaviorParameter.msg"
   "msg/RequestStatus.msg"
+  "msg/TeleoperationMode.msg"
 )
 
 set(srv_files
@@ -28,6 +29,7 @@ set(srv_files
 
 set(action_files
   "action/DoObjectiveSequence.action"
+  "action/DoTeleoperate.action"
 )
 
 rosidl_generate_interfaces(${PROJECT_NAME}
