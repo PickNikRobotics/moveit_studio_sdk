@@ -3,6 +3,12 @@
 # Image to segment.
 sensor_msgs/Image image
 
+# Text strings describing the objects to segment. Only masks of objects matching the strings
+# will be returned.
+# If the model has a finite vocabulary, each string is an existing class label, e.g. button, door handle.
+# If the model is open-vocabulary, each string is a freeform description, e.g. flat red button, door with black handle.
+string[] valid_classes
+
 # Segmentation parameters. They are stored as key-value pairs because they are 
 # specific to the segmentation model being run by the action server.
 moveit_studio_sdk_msgs/BehaviorParameter[] parameters
