@@ -13,13 +13,6 @@ TeleoperationMode initial_mode
 
 ---
 
-## FEEDBACK
-
-# The current teleoperation mode
-TeleoperationMode current_mode
-
----
-
 ## RESULT
 
 # Whether the teleoperate action completed successfully.
@@ -27,3 +20,10 @@ bool success
 
 # (Optional) Free-form string to describe the result.
 string reason
+
+---
+
+## FEEDBACK
+
+# The current teleoperation mode
+TeleoperationMode current_mode
