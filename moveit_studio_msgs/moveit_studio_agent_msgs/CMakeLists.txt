@@ -1,7 +1,6 @@
 cmake_minimum_required(VERSION 3.22)
 project(moveit_studio_agent_msgs)
 
-find_package(moveit_studio_common REQUIRED)
 moveit_studio_package()
 
 # Disable Wredundant-decls warnings since rosidl generates redundant function declarations
