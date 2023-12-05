@@ -14,7 +14,6 @@ find_package(builtin_interfaces REQUIRED)
 find_package(geometry_msgs REQUIRED)
 find_package(moveit_msgs REQUIRED)
 find_package(moveit_studio_sdk_msgs REQUIRED)
-find_package(moveit_task_constructor_msgs REQUIRED)
 find_package(rosidl_default_generators REQUIRED)
 find_package(sensor_msgs REQUIRED)
 find_package(std_msgs REQUIRED)
@@ -27,7 +26,6 @@ set(msg_files
   "msg/Json.msg"
   "msg/LicenseInfo.msg"
   "msg/Log.msg"
-  "msg/MtcSolution.msg"
   "msg/PlanningGroup.msg"
   "msg/Waypoint.msg"
 )
@@ -56,7 +54,6 @@ rosidl_generate_interfaces(${PROJECT_NAME}
     geometry_msgs
     moveit_msgs
     moveit_studio_sdk_msgs
-    moveit_task_constructor_msgs
     std_msgs
 )
 

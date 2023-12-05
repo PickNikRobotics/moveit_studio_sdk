@@ -15,7 +15,6 @@
   <depend>geometry_msgs</depend>
   <depend>moveit_msgs</depend>
   <depend>moveit_studio_sdk_msgs</depend>
-  <depend>moveit_task_constructor_msgs</depend>
   <depend>sensor_msgs</depend>
   <depend>std_msgs</depend>
 

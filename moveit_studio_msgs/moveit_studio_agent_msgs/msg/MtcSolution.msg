@@ -1,2 +1,0 @@
-moveit_task_constructor_msgs/Solution solution
-moveit_task_constructor_msgs/SolutionInfo solution_info
