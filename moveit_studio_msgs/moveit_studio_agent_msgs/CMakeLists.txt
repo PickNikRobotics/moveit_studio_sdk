@@ -35,12 +35,10 @@ set(srv_files
   "srv/GetPlanningGroups.srv"
   "srv/GetWaypoints.srv"
   "srv/RetrieveBehaviorParameter.srv"
-  "srv/RetrieveMtcIntrospectionData.srv"
   "srv/SavePose.srv"
   "srv/SendPointCloud2.srv"
   "srv/SetStringArray.srv"
   "srv/SetTransform.srv"
-  "srv/StoreMtcIntrospectionData.srv"
 )
 
 rosidl_generate_interfaces(${PROJECT_NAME}

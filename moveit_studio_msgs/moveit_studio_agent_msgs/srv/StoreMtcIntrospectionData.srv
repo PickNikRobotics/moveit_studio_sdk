@@ -1,5 +1,0 @@
-# Service which sends MTC task ID and solutions which gets stored in a map in MTC Solution manager node
-string task_id
-MtcSolution[] solutions
----
-moveit_studio_sdk_msgs/RequestStatus status
