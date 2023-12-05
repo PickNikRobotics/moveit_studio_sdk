@@ -1,0 +1,10 @@
+# frame ID that acts as the parent frame for the pose
+string frame_id_lookup
+
+# pose (with respect to frame_id_lookup) to save
+geometry_msgs/Pose pose_relative_to_frame
+
+# frame ID for persistently published pose of frame_id_lookup
+string frame_id_persistent_name
+---
+bool success
