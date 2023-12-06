@@ -1,0 +1,33 @@
+# Service message definition for adding new waypoints and modifying existing waypoints.
+# See below for descriptions of each supported operation.
+
+# Saves a waypoint with a given name. The service server handles reading the robot
+# state and calculating transforms and stores the waypoint. Returns success if the
+# name is valid, getting the robot state succeeds, etc. Error otherwise.
+int16 SAVE = 0
+
+# Renames an existing waypoint. Error if waypoint doesn't exist.
+int16 RENAME = 1
+
+# Erases an existing waypoint. Error if waypoint doesn't exist.
+int16 ERASE = 2
+
+# Set the operation type for editing waypoints.
+int16 operation
+
+# Name of the waypoint to save or modify. The name must be new, that is,
+# unique if saving a new waypoint. Otherwise it must be the name of an
+# existing waypoint and will serve as an identifier for finding it.
+string waypoint_name
+
+# Unique new name for an existing waypoint. This field is used only
+# when renaming a waypoint.
+string existing_waypoint_new_name
+
+---
+# The status of the service call and an optional error message.
+moveit_studio_sdk_msgs/RequestStatus status
+
+# The new waypoint if one was created (operation was 'save' and
+# the operation was successful). Otherwise empty.
+moveit_studio_agent_msgs/Waypoint new_waypoint

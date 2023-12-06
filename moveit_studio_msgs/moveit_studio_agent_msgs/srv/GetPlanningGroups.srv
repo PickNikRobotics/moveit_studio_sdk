@@ -1,0 +1,5 @@
+# Service to query the planning groups, as defined in the SRDF.
+
+---
+# A sequence with all the planning groups defined in the SRDF.
+moveit_studio_agent_msgs/PlanningGroup[] planning_groups

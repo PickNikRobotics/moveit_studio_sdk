@@ -1,0 +1,12 @@
+# Enum to describe the two possible operations on a saved transform:
+#   SET_OR_UPDATE: Create a new transform, or updating and existing transform between the same frames as the provided transform.
+#   DELETE: Delete an existing transform between the same frames.
+uint8 SET_OR_UPDATE=0
+uint8 DELETE=1
+uint8 action
+
+# Transform to set, update, or delete.
+geometry_msgs/TransformStamped tform
+---
+bool success
+string message
