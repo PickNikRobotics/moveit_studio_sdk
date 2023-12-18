@@ -1,0 +1,5 @@
+# Service to clear all stored parameters in the MoveIt Studio Parameter Manager
+
+---
+
+bool success
