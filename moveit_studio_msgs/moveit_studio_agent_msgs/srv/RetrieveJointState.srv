@@ -1,5 +1,7 @@
 # Service to retrieve a joint state from the MoveIt Studio Parameter Manager
 
+builtin_interfaces/Duration timeout
+
 ---
 
 bool success
