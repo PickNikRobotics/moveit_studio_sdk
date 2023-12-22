@@ -1,0 +1,9 @@
+# Service to retrieve a pose from the MoveIt Studio Parameter Manager
+
+bool has_timeout
+builtin_interfaces/Duration timeout
+
+---
+
+bool success
+geometry_msgs/PoseStamped pose

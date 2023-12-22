@@ -28,6 +28,7 @@ set(msg_files
 )
 
 set(srv_files
+  "srv/ClearStoredParameters.srv"
   "srv/EditWaypoints.srv"
   "srv/GetAgentInfo.srv"
   "srv/GetClickedPointNormal.srv"
@@ -35,10 +36,14 @@ set(srv_files
   "srv/GetPlanningGroups.srv"
   "srv/GetWaypoints.srv"
   "srv/RetrieveBehaviorParameter.srv"
+  "srv/RetrieveJointState.srv"
+  "srv/RetrievePose.srv"
   "srv/SavePose.srv"
   "srv/SendPointCloud2.srv"
   "srv/SetStringArray.srv"
   "srv/SetTransform.srv"
+  "srv/StoreJointState.srv"
+  "srv/StorePose.srv"
 )
 
 rosidl_generate_interfaces(${PROJECT_NAME}

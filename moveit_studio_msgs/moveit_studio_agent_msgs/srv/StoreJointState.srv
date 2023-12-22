@@ -1,0 +1,7 @@
+# Service to store a joint state in the MoveIt Studio Parameter Manager
+
+sensor_msgs/JointState joint_state
+
+---
+
+bool success
