@@ -4,7 +4,7 @@ package_name = "moveit_studio_py"
 
 setup(
     name=package_name,
-    version="2.11.0",
+    version="2.12.0",
     packages=find_packages(),
     zip_safe=True,
     maintainer="Ashton Larkin",
