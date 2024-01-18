@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.22)
-project(moveit_studio_vision_msgs)
+project(moveit_pro_vision_msgs)
 
 # Disable Wredundant-decls warnings since rosidl generates redundant function declarations
 if(CMAKE_CXX_COMPILER_ID MATCHES "(GNU|Clang)")
@@ -10,7 +10,7 @@ find_package(ament_cmake REQUIRED)
 find_package(builtin_interfaces REQUIRED)
 find_package(geometry_msgs REQUIRED)
 find_package(moveit_msgs REQUIRED)
-find_package(moveit_studio_sdk_msgs REQUIRED)
+find_package(moveit_pro_sdk_msgs REQUIRED)
 find_package(rosidl_default_generators REQUIRED)
 find_package(sensor_msgs REQUIRED)
 find_package(shape_msgs REQUIRED)
@@ -39,7 +39,7 @@ rosidl_generate_interfaces(${PROJECT_NAME}
     builtin_interfaces  
     geometry_msgs
     moveit_msgs
-    moveit_studio_sdk_msgs
+    moveit_pro_sdk_msgs
     sensor_msgs
     shape_msgs
     std_msgs

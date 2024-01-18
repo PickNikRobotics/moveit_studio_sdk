@@ -20,4 +20,4 @@ int8 state
 string current_objective_name
 
 # Information about the license: expiration date, type, etc.
-moveit_studio_agent_msgs/LicenseInfo license
+moveit_pro_agent_msgs/LicenseInfo license

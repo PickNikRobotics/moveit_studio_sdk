@@ -1,7 +1,7 @@
 # Message type that represents a Behavior parameter.
 
 # The description of the Behavior Parameter.
-moveit_studio_sdk_msgs/BehaviorParameterDescription description
+moveit_pro_sdk_msgs/BehaviorParameterDescription description
 
 # The value of the Behavior Parameter, derived from the `description` field.
 # Only one value should be set.

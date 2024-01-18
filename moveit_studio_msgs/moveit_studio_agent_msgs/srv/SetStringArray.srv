@@ -1,3 +1,3 @@
 string[] data
 ---
-moveit_studio_sdk_msgs/RequestStatus status
+moveit_pro_sdk_msgs/RequestStatus status

@@ -33,9 +33,9 @@
 import argparse
 import rclpy
 
-from moveit_studio_py.objective_manager import ObjectiveManager
-from moveit_studio_sdk_msgs.msg import BehaviorParameter
-from moveit_studio_sdk_msgs.msg import BehaviorParameterDescription
+from moveit_pro_py.objective_manager import ObjectiveManager
+from moveit_pro_sdk_msgs.msg import BehaviorParameter
+from moveit_pro_sdk_msgs.msg import BehaviorParameterDescription
 
 
 def main():

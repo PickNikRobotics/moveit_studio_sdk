@@ -7,4 +7,4 @@ uint16 CLEAR_SNAPSHOT = 0
 uint16 type
 
 # The event payload.
-moveit_studio_agent_msgs/Json data
+moveit_pro_agent_msgs/Json data

@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.22)
-project(moveit_studio_msgs)
+project(moveit_pro_msgs)
 
 find_package(ament_cmake REQUIRED)
 

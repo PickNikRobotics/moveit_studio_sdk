@@ -8,10 +8,10 @@ RUN --mount=type=cache,target=/var/cache/apt,sharing=locked \
     apt-get install -y --no-install-recommends ros-humble-rmw-cyclonedds-cpp
 
 # Set up the MoveIt Pro SDK workspace
-ENV STUDIO_SDK_WS /opt/moveit_studio_sdk_ws
+ENV STUDIO_SDK_WS /opt/moveit_pro_sdk_ws
 WORKDIR $STUDIO_SDK_WS
-COPY moveit_studio_msgs/ src/moveit_studio_msgs/
-COPY moveit_studio_py/ src/moveit_studio_py/
+COPY moveit_pro_msgs/ src/moveit_pro_msgs/
+COPY moveit_pro_py/ src/moveit_pro_py/
 RUN --mount=type=cache,target=/var/cache/apt,sharing=locked \
     --mount=type=cache,target=/var/lib/apt,sharing=locked \
     apt-get update && apt-get upgrade -y && \

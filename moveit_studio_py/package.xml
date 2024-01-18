@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
-  <name>moveit_studio_py</name>
+  <name>moveit_pro_py</name>
   <version>2.12.0</version>
   <description>Python API for MoveIt Pro SDK.</description>
   <author email="ashton.larkin@picknik.ai">Ashton Larkin</author>
@@ -11,7 +11,7 @@
   <buildtool_depend>ament_cmake</buildtool_depend>
 
   <depend>moveit_msgs</depend>
-  <depend>moveit_studio_sdk_msgs</depend>
+  <depend>moveit_pro_sdk_msgs</depend>
   <depend>rclpy</depend>
 
   <test_depend>ament_flake8</test_depend>

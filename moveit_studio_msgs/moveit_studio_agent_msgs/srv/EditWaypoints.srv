@@ -26,8 +26,8 @@ string existing_waypoint_new_name
 
 ---
 # The status of the service call and an optional error message.
-moveit_studio_sdk_msgs/RequestStatus status
+moveit_pro_sdk_msgs/RequestStatus status
 
 # The new waypoint if one was created (operation was 'save' and
 # the operation was successful). Otherwise empty.
-moveit_studio_agent_msgs/Waypoint new_waypoint
+moveit_pro_agent_msgs/Waypoint new_waypoint

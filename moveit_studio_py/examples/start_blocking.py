@@ -33,7 +33,7 @@
 import argparse
 import rclpy
 
-from moveit_studio_py.objective_manager import ObjectiveManager
+from moveit_pro_py.objective_manager import ObjectiveManager
 
 
 def main():

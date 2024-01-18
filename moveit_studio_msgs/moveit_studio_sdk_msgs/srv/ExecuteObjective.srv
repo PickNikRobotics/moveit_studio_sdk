@@ -4,7 +4,7 @@
 string objective_name
 
 # All parameters required by the given Objective.
-moveit_studio_sdk_msgs/BehaviorParameter[] parameter_overrides
+moveit_pro_sdk_msgs/BehaviorParameter[] parameter_overrides
 ---
 # 1 if successful, otherwise an error code.
 moveit_msgs/MoveItErrorCodes error_code

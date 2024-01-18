@@ -1,6 +1,6 @@
 from setuptools import find_packages, setup
 
-package_name = "moveit_studio_py"
+package_name = "moveit_pro_py"
 
 setup(
     name=package_name,

@@ -1,5 +1,5 @@
 # Service which retrieves user input for behavior parameters
 string parameter_name
 ---
-moveit_studio_sdk_msgs/RequestStatus status
-moveit_studio_sdk_msgs/BehaviorParameter parameter
+moveit_pro_sdk_msgs/RequestStatus status
+moveit_pro_sdk_msgs/BehaviorParameter parameter

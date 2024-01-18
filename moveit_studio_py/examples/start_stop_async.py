@@ -36,7 +36,7 @@ import rclpy
 import time
 
 from moveit_msgs.msg import MoveItErrorCodes
-from moveit_studio_py.objective_manager import ObjectiveManager
+from moveit_pro_py.objective_manager import ObjectiveManager
 
 
 def done_cb(future: rclpy.task.Future) -> None:

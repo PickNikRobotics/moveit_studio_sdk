@@ -2,7 +2,7 @@
 # no waypoints, return an empty list and Status with error message.
 ---
 # The status of the service call and an optional error message
-moveit_studio_sdk_msgs/RequestStatus status
+moveit_pro_sdk_msgs/RequestStatus status
 
 # All the waypoints stored by the agent
-moveit_studio_agent_msgs/Waypoint[] waypoints
+moveit_pro_agent_msgs/Waypoint[] waypoints

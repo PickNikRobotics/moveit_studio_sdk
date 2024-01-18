@@ -31,8 +31,8 @@ import rclpy
 
 from collections.abc import Callable
 from moveit_msgs.msg import MoveItErrorCodes
-from moveit_studio_sdk_msgs.msg import BehaviorParameter
-from moveit_studio_sdk_msgs.srv import CancelObjective, ExecuteObjective
+from moveit_pro_sdk_msgs.msg import BehaviorParameter
+from moveit_pro_sdk_msgs.srv import CancelObjective, ExecuteObjective
 
 
 class ObjectiveManager:
@@ -48,7 +48,7 @@ class ObjectiveManager:
         """
         Constructor.
         """
-        self._node = rclpy.create_node("moveit_studio_objective_manager")
+        self._node = rclpy.create_node("moveit_pro_objective_manager")
 
         self._execute_objective_client = self._node.create_client(
             ExecuteObjective, self.__EXECUTE_OBJECTIVE_SERVICE

@@ -26,7 +26,7 @@ The `ROS_DOMAIN_ID` being set here should match the `ROS_DOMAIN_ID` you are usin
 Once the Docker image is built and the `ROS_DOMAIN_ID` is set, start a container:
 
 ```
-docker compose run --rm moveit_studio_sdk_standalone
+docker compose run --rm moveit_pro_sdk_standalone
 ```
 
 You should now be at a terminal inside of the SDK container.
@@ -47,14 +47,14 @@ There are three example scripts provided:
 To run the `Open Gripper` Objective, let's use `start_blocking.py` since this Objective shouldn't take long to complete:
 
 ```
-ros2 run moveit_studio_py start_blocking.py "Open Gripper"
+ros2 run moveit_pro_py start_blocking.py "Open Gripper"
 ```
 
 To run the `3 Waypoints Pick and Place` Objective, let's use `start_stop_async.py` since this Objective runs indefinitely.
 We will let this Objective run for 10 seconds:
 
 ```
-ros2 run moveit_studio_py start_stop_async.py "3 Waypoints Pick and Place" 10
+ros2 run moveit_pro_py start_stop_async.py "3 Waypoints Pick and Place" 10
 ```
 
 To run the `move_to_waypoint.py` example, a valid waypoint must be provided.
@@ -62,7 +62,7 @@ A list of pre-defined waypoints can be found in the ui's "Endpoint" tab.
 The following command would move the robot arm to the `Look at Left Table` waypoint:
 
 ```
-ros2 run moveit_studio_py move_to_waypoint.py "Look at Left Table"
+ros2 run moveit_pro_py move_to_waypoint.py "Look at Left Table"
 ```
 
 If you look at the `Objectives` tab in the MoveIt Pro UI, you should see these Objectives starting/stopping successfully.

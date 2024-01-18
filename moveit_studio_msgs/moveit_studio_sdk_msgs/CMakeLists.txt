@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.22)
-project(moveit_studio_sdk_msgs)
+project(moveit_pro_sdk_msgs)
 
 # Disable Wredundant-decls warnings since rosidl generates redundant function declarations
 if(CMAKE_CXX_COMPILER_ID MATCHES "(GNU|Clang)")

@@ -20,7 +20,7 @@ geometry_msgs/Pose pose
 shape_msgs/SolidPrimitive bounding_volume
 
 # A vector of surfaces which represents flat faces on the object.
-moveit_studio_vision_msgs/GraspableFace[] surfaces
+moveit_pro_vision_msgs/GraspableFace[] surfaces
 
 # Primitives. A vector of solid geometric primitives which describe the shape of the object.
 shape_msgs/SolidPrimitive[] primitives
