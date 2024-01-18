@@ -1,4 +1,4 @@
-# Message to be published to MoveIt Studio UI or console
+# Message to be published to MoveIt Pro UI or console
 string message
 
 # The level of message to log on UI - INFO, WARN, ERROR 
