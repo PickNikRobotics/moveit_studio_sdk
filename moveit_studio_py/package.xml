@@ -3,7 +3,7 @@
 <package format="3">
   <name>moveit_studio_py</name>
   <version>2.12.0</version>
-  <description>Python API for MoveIt Studio SDK.</description>
+  <description>Python API for MoveIt Pro SDK.</description>
   <author email="ashton.larkin@picknik.ai">Ashton Larkin</author>
   <maintainer email="ashton.larkin@picknik.ai">Ashton Larkin</maintainer>
   <license>BSD-3-Clause</license>
