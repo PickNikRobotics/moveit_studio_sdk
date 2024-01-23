@@ -7,7 +7,7 @@ RUN --mount=type=cache,target=/var/cache/apt,sharing=locked \
     apt-get update && apt-get upgrade -y && \
     apt-get install -y --no-install-recommends ros-humble-rmw-cyclonedds-cpp
 
-# Set up the MoveIt Studio SDK workspace
+# Set up the MoveIt Pro SDK workspace
 ENV STUDIO_SDK_WS /opt/moveit_studio_sdk_ws
 WORKDIR $STUDIO_SDK_WS
 COPY moveit_studio_msgs/ src/moveit_studio_msgs/

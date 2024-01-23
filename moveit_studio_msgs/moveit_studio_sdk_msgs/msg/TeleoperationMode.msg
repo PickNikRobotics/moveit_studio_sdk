@@ -1,4 +1,4 @@
-# Enumeration that describes the MoveIt Studio UI teleoperation mode.
+# Enumeration that describes the web UI teleoperation mode.
 
 # The teleoperation mode value
 int32 value

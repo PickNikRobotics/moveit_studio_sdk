@@ -1,4 +1,4 @@
-# Service to store a pose in the MoveIt Studio Parameter Manager
+# Service to store a pose in the Parameter Manager
 
 geometry_msgs/PoseStamped pose
 

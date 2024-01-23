@@ -1,4 +1,4 @@
-# Service to retrieve a joint state from the MoveIt Studio Parameter Manager
+# Service to retrieve a joint state from the Parameter Manager
 
 bool has_timeout
 builtin_interfaces/Duration timeout

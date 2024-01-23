@@ -9,6 +9,6 @@ setup(
     zip_safe=True,
     maintainer="Ashton Larkin",
     maintainer_email="ashton.larkin@picknik.ai",
-    description="Python interface for MoveIt Studio SDK",
+    description="Python interface for MoveIt Pro SDK",
     license="Proprietary",
 )
