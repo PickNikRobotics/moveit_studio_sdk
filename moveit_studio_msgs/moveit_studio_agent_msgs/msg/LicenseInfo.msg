@@ -26,5 +26,5 @@ uint32 expiration_date
 # True when the license if a floating one i.e. multiple seats per license.
 bool is_floating
 
-# The email tied to the license key
+# The email address tied to the license key
 string email
