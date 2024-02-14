@@ -15,6 +15,8 @@ int8 FULL = 0
 int8 TRIAL = 1
 int8 OEM = 2
 int8 UNLICENSED = 3
+int8 INTERNAL = 4
+int8 TEST = 5
 
 # Current license type.
 int8 type
@@ -25,6 +27,3 @@ uint32 expiration_date
 
 # True when the license if a floating one i.e. multiple seats per license.
 bool is_floating
-
-# The email address tied to the license key
-string email
