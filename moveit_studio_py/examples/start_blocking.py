@@ -1,7 +1,3 @@
-#!/usr/bin/env python3
-
-# Start an Objective and block until the Objective has completed execution.
-
 # Copyright 2023 Picknik Inc.
 #
 # Redistribution and use in source and binary forms, with or without
@@ -29,6 +25,10 @@
 # CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
 # ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 # POSSIBILITY OF SUCH DAMAGE.
+
+#!/usr/bin/env python3
+
+# Start an Objective and block until the Objective has completed execution.
 
 import argparse
 import rclpy
