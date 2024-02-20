@@ -1,7 +1,5 @@
 #!/usr/bin/env python3
 
-# Run the "Move to Waypoint" Objective with the waypoint defined as a parameter override.
-
 # Copyright 2023 Picknik Inc.
 #
 # Redistribution and use in source and binary forms, with or without
@@ -29,6 +27,8 @@
 # CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
 # ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 # POSSIBILITY OF SUCH DAMAGE.
+
+# Run the "Move to Waypoint" Objective with the waypoint defined as a parameter override.
 
 import argparse
 import rclpy

@@ -1,8 +1,5 @@
 #!/usr/bin/env python3
 
-# Starts an Objective asynchronously, and then stops the running Objective after waiting for a user-defined
-# number of seconds.
-
 # Copyright 2023 Picknik Inc.
 #
 # Redistribution and use in source and binary forms, with or without
@@ -30,6 +27,9 @@
 # CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
 # ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 # POSSIBILITY OF SUCH DAMAGE.
+
+# Starts an Objective asynchronously, and then stops the running Objective after waiting for a user-defined
+# number of seconds.
 
 import argparse
 import rclpy
