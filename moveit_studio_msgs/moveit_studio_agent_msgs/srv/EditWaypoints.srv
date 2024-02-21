@@ -20,6 +20,10 @@ int16 operation
 # existing waypoint and will serve as an identifier for finding it.
 string waypoint_name
 
+# Group names this waypoint is associated with. When a new waypoint is created,
+# the values of all joints that are part of the listed groups are stored in a waypoint.
+string[] joint_group_names
+
 # Unique new name for an existing waypoint. This field is used only
 # when renaming a waypoint.
 string existing_waypoint_new_name
