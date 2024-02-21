@@ -11,4 +11,4 @@ bool favorite
 sensor_msgs/JointState joint_state
 
 # Associated groups
-string[] group_names
+string[] joint_group_names
