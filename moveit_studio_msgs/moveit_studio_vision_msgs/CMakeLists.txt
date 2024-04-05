@@ -25,7 +25,6 @@ set(msg_files
   "msg/ObjectDetection.msg"
   "msg/ObjectDetectionArray.msg"
   "msg/ObjectSubframe.msg"
-  "msg/PointCloudPCD.msg"
 )
 
 set(action_files
