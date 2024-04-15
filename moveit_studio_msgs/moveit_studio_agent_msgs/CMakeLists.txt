@@ -31,7 +31,6 @@ set(srv_files
   "srv/ClearStoredParameters.srv"
   "srv/EditWaypoints.srv"
   "srv/GetAgentInfo.srv"
-  "srv/GetClickedPointNormal.srv"
   "srv/GetClosestFrame.srv"
   "srv/GetPlanningGroups.srv"
   "srv/GetWaypoints.srv"
