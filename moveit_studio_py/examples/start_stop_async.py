@@ -33,13 +33,14 @@
 
 import argparse
 import rclpy
+from rclpy.task import Future
 import time
 
 from moveit_msgs.msg import MoveItErrorCodes
 from moveit_studio_py.objective_manager import ObjectiveManager
 
 
-def done_cb(future: rclpy.task.Future) -> None:
+def done_cb(future: Future) -> None:
     """
     Callback that is triggered when an Objective that was started asynchronously is done executing.
 
@@ -47,12 +48,13 @@ def done_cb(future: rclpy.task.Future) -> None:
         future: the Objective's future, which contains info about the completion status of the Objective.
     """
     result = future.result()
-    if result.error_code.val == MoveItErrorCodes.SUCCESS:
-        print("Objective executed successfully!")
-    elif result.error_message:
-        print(result.error_message)
-    else:
-        print(f"MoveItErrorCode Value: {result.error_code.val}")
+    if result is not None:
+        if result.error_code.val == MoveItErrorCodes.SUCCESS:
+            print("Objective executed successfully!")
+        elif result.error_message:
+            print(result.error_message)
+        else:
+            print(f"MoveItErrorCode Value: {result.error_code.val}")
 
 
 def main():

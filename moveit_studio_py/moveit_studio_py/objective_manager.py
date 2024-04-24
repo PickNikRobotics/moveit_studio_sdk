@@ -28,8 +28,11 @@
 
 import threading
 import rclpy
+from rclpy.executors import MultiThreadedExecutor
+from rclpy.task import Future
 
 from collections.abc import Callable
+from typing import Optional
 from moveit_msgs.msg import MoveItErrorCodes
 from moveit_studio_sdk_msgs.msg import BehaviorParameter
 from moveit_studio_sdk_msgs.srv import CancelObjective, ExecuteObjective
@@ -48,7 +51,7 @@ class ObjectiveManager:
         """
         Constructor.
         """
-        self._node = rclpy.create_node("moveit_studio_objective_manager")
+        self._node = rclpy.create_node("moveit_studio_objective_manager") # type: ignore
 
         self._execute_objective_client = self._node.create_client(
             ExecuteObjective, self.__EXECUTE_OBJECTIVE_SERVICE
@@ -66,7 +69,7 @@ class ObjectiveManager:
                 f"{self.__CANCEL_OBJECTIVE_SERVICE} service not available."
             )
 
-        self._executor = rclpy.executors.MultiThreadedExecutor()
+        self._executor = MultiThreadedExecutor()
         self._executor.add_node(self._node)
         self._executor_thread = threading.Thread(
             target=self._executor.spin, daemon=True
@@ -87,7 +90,7 @@ class ObjectiveManager:
         objective_name: str,
         parameter_overrides: list[BehaviorParameter] = [],
         blocking: bool = True,
-        async_callback: Callable[[rclpy.task.Future], None] = None,
+        async_callback: Optional[Callable[[Future], None]] = None,
     ) -> tuple[bool, str]:
         """
         Run an Objective.
