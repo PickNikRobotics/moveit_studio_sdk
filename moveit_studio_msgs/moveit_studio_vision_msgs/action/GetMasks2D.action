@@ -3,7 +3,7 @@
 # Image to segment.
 sensor_msgs/Image image
 
-# Text strings describing the objects to segment. Only masks of objects matching at least one string 
+# Text strings describing the objects to segment. Only masks of objects matching at least one string
 # will be returned. If no string is passed, this filter is disabled.
 # If the model has a finite vocabulary, each string is an existing class label, e.g. button, door handle.
 # If the model is open-vocabulary, each string is a freeform description, e.g. flat red button, door with
@@ -14,9 +14,9 @@ string[] valid_classes
 # If no points are passed, this filter is disabled.
 # Points are expressed in a frame with origin at the top-left corner of the image, with its x axis pointing
 # right, and its y axis point down. The z coordinate is not used.
-geometry_msgs/Point32[] valid_points
+geometry_msgs/PointStamped[] valid_points
 
-# Segmentation parameters. They are stored as key-value pairs because they are 
+# Segmentation parameters. They are stored as key-value pairs because they are
 # specific to the segmentation model being run by the action server.
 moveit_studio_sdk_msgs/BehaviorParameter[] parameters
 
