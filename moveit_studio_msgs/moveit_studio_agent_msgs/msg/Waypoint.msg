@@ -9,8 +9,6 @@ bool favorite
 
 # Robot arm joint state when the waypoint was created
 sensor_msgs/JointState joint_state
-
-# Robot arm joint state when the waypoint was created
 sensor_msgs/MultiDOFJointState multi_dof_joint_state
 
 # Associated groups
