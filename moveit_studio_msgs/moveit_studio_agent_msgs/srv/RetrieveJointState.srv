@@ -7,3 +7,4 @@ builtin_interfaces/Duration timeout
 
 bool success
 sensor_msgs/JointState joint_state
+sensor_msgs/MultiDOFJointState multi_dof_joint_state
