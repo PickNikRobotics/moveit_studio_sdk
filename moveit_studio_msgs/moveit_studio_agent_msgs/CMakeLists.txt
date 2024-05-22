@@ -24,6 +24,7 @@ set(msg_files
   "msg/LicenseInfo.msg"
   "msg/Log.msg"
   "msg/PlanningGroup.msg"
+  "msg/RobotJointState.msg"
   "msg/Waypoint.msg"
 )
 

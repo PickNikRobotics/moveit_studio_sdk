@@ -6,4 +6,4 @@ builtin_interfaces/Duration timeout
 ---
 
 bool success
-sensor_msgs/JointState joint_state
+moveit_studio_agent_msgs/RobotJointState robot_joint_state
