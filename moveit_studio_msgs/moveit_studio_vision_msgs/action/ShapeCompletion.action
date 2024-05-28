@@ -1,0 +1,12 @@
+# Goal 
+
+# Point cloud to complete
+sensor_msgs/PointCloud2 partial_pointcloud
+#vs moveit_studio_vision_msgs/PointCloudPCD ?
+
+--- 
+# Result
+sensor_msgs/PointCloud2 completed_pointcloud
+
+---
+# Feedback
