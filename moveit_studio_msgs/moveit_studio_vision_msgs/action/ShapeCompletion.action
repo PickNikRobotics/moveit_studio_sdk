@@ -3,7 +3,7 @@
 # Point cloud to complete
 sensor_msgs/PointCloud2 partial_pointcloud
 
---- 
+---
 # Result
 sensor_msgs/PointCloud2 complete_pointcloud
 
