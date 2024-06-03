@@ -3,6 +3,9 @@
 # Point cloud to complete
 sensor_msgs/PointCloud2 partial_pointcloud
 
+# Model parameters. Stored as key-value pairs as they can be specific to the model selected.
+moveit_studio_sdk_msgs/BehaviorParameter[] parameters
+
 ---
 # Result
 sensor_msgs/PointCloud2 complete_pointcloud
