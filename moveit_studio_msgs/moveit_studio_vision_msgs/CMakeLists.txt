@@ -30,6 +30,7 @@ set(msg_files
 
 set(action_files
   "action/GetMasks2D.action"
+  "action/ShapeCompletion.action"
 )
 
 rosidl_generate_interfaces(${PROJECT_NAME}
