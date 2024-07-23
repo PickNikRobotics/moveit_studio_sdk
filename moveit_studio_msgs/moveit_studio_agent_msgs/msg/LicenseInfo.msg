@@ -27,3 +27,6 @@ uint32 expiration_date
 
 # True when the license if a floating one i.e. multiple seats per license.
 bool is_floating
+
+# If there is an error, this contains the error string from the Cryptlex Validator
+string error_description
