@@ -18,6 +18,7 @@ find_package(std_msgs REQUIRED)
 find_package(vision_msgs REQUIRED)
 
 set(msg_files
+  "msg/GraspInfo.msg"
   "msg/GraspableFace.msg"
   "msg/GraspableObject.msg"
   "msg/Mask2D.msg"
