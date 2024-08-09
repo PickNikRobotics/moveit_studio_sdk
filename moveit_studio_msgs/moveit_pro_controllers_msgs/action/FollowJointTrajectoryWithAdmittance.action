@@ -1,0 +1,49 @@
+# The trajectory for all revolute, continuous or prismatic joints
+trajectory_msgs/JointTrajectory trajectory
+
+# Tolerances applied to the joints as the trajectory is executed.
+# If the measured joint values fall outside the tolerances the trajectory
+# goal is aborted with 'error_code' set to PATH_TOLERANCE_VIOLATED.
+# If empty, default tolerances from configs will be used.
+float64[] path_tolerance
+
+# To report success, the joints must be within 'goal_tolerance' of the
+# final trajectory value at the end of the trajectory time.
+# If the joints are not within 'goal_tolerance' after the trajectory finish
+# time, the goal aborts with error_code set to GOAL_TOLERANCE_VIOLATED.
+# If empty, default tolerances from configs will be used.
+float64[] goal_tolerance
+
+# The absolute force or torque threshold value for each Cartesian axis at which
+# the controller will stop executing if exceeded.
+# If the absolute value of a measured FTS value exceeds the corresponding
+# threshold, the trajectory goal is aborted with 'error_code' set to
+# FORCE_TORQUE_THRESHOLD_EXCEEDED.
+# If empty, default threshold values from configs will be used.
+float64[] absolute_force_torque_threshold
+
+# "Joint Trajectory with Admittance Controller" control parameters.
+# These include stiffness, damping, path tolerances, etc.
+moveit_pro_controllers_msgs/AdmittanceParameters admittance_parameters
+
+---
+int32 error_code
+int32 SUCCESSFUL = 0
+int32 INVALID_GOAL = -1
+int32 INVALID_JOINTS = -2
+int32 OLD_HEADER_TIMESTAMP = -3
+int32 PATH_TOLERANCE_VIOLATED = -4
+int32 GOAL_TOLERANCE_VIOLATED = -5
+int32 ADMITTANCE_ERROR = -6
+int32 FORCE_TORQUE_THRESHOLD_EXCEEDED = -7
+
+# Human readable description of the error code. Contains complementary
+# information that is especially useful when execution fails.
+string error_message
+
+---
+std_msgs/Header header
+string[] joint_names
+trajectory_msgs/JointTrajectoryPoint desired
+trajectory_msgs/JointTrajectoryPoint actual
+trajectory_msgs/JointTrajectoryPoint error
