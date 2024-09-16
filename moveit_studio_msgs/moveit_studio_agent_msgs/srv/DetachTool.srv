@@ -1,0 +1,12 @@
+# Service to detach tools from the robot.
+
+# The name of the tool to detach.
+# It must have been attached previously. Otherwise an error will be returned.
+string tool_name
+
+---
+# If the operation was successful.
+bool success
+
+# If the operation was not successful, a message describing the error.
+string message
