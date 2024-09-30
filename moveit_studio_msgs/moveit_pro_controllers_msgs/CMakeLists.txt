@@ -20,6 +20,7 @@ rosidl_generate_interfaces(
   "msg/AdmittanceParameters.msg"
   "msg/CartesianSelectionVector.msg"
   "msg/VelocityForceCommand.msg"
+  "msg/VelocityForceControllerState.msg"
   "srv/ConfigureVelocityForceController.srv"
   DEPENDENCIES
   action_msgs
