@@ -22,3 +22,8 @@ float64 wrench_gain
 # These can be modified at any time, and the controller will do its best to achieve them.
 geometry_msgs/Twist twist
 geometry_msgs/Wrench wrench
+
+# Nullspace parameter to be optionally used for secondary control goal.
+# Empty array will be ignored, otherwise array length must match number of degrees-of-freedom.
+# These can be modified at any time, and the controller should do its best to minimize joint-space costs if a nullspace controller is implemented.
+float64[] joint_state_hint
