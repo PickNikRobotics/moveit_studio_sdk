@@ -29,6 +29,7 @@ set(msg_files
 )
 
 set(srv_files
+  "srv/AddToolInWorld.srv"
   "srv/AttachTool.srv"
   "srv/DetachTool.srv"
   "srv/ClearStoredParameters.srv"
