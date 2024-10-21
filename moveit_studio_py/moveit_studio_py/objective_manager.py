@@ -115,8 +115,6 @@ class ObjectiveManager:
             result = self._execute_objective_client.call(request)
             if result.error_code.val == MoveItErrorCodes.SUCCESS:
                 return (True, "")
-            elif hasattr(result, "error_message"):
-                return (False, result.error_message)
             else:
                 return (False, f"MoveItErrorCode Value: {result.error_code.val}")
         else:

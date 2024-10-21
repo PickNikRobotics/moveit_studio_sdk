@@ -49,8 +49,6 @@ def done_cb(future: rclpy.task.Future) -> None:
     result = future.result()
     if result.error_code.val == MoveItErrorCodes.SUCCESS:
         print("Objective executed successfully!")
-    elif result.error_message:
-        print(result.error_message)
     else:
         print(f"MoveItErrorCode Value: {result.error_code.val}")
 
