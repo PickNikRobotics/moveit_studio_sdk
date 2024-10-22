@@ -1,0 +1,12 @@
+# Service to detach tools from the robot or remove them from the world.
+
+# The name of the tool to detach or remove.
+# It must have been attached or added to the world previously. Otherwise an error will be returned.
+string tool_name
+
+---
+# If the operation was successful.
+bool success
+
+# If the operation was not successful, a message describing the error.
+string message
