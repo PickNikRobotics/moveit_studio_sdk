@@ -115,7 +115,10 @@ class ObjectiveManager:
             result = self._execute_objective_client.call(request)
             if result.error_code.val == MoveItErrorCodes.SUCCESS:
                 return (True, "")
+            elif result.error_code.val == MoveItErrorCodes.PREEMPTED:
+                print("Objective STOPPED by user")
             else:
+                print("Objective FAILED")
                 return (False, f"MoveItErrorCode Value: {result.error_code.val}")
         else:
             if not async_callback:
