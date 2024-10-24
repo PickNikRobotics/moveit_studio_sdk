@@ -40,6 +40,7 @@ from moveit_studio_py.objective_manager import ObjectiveManager
 
 done = False
 
+
 def done_cb(future: rclpy.task.Future) -> None:
     """
     Callback that is triggered when an Objective that was started asynchronously is done executing.
@@ -83,7 +84,7 @@ def main():
         args.objective_name, blocking=False, async_callback=done_cb
     )
     cancel_time = time.time() + args.wait_time
-    while not done and time.time() < cancel_time: 
+    while not done and time.time() < cancel_time:
         time.sleep(1)
 
     if not done:
