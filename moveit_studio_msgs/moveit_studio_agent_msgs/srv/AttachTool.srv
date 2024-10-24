@@ -1,5 +1,6 @@
 # Service to attach articulated tools to the robot.
-# The tool is given as a URDF string, and is attached to a specific link on the robot with a relative pose.
+# The tool given must already exist in the planning scene, and is attached to a specific link on the robot at the
+# current transform between the link and the tool.
 # Once the tool is attached, its collision shapes will be updated in the planning scene according to the tool
 # joint values, if those are published in /joint_states.
 
@@ -7,15 +8,9 @@
 # It must not be attached already, otherwise an error will be returned.
 string tool_name
 
-# The tool URDF.
-string tool_urdf
-
 # The name of the robot link to attach to.
 # It must exist in the robot URDF, otherwise an error will be returned.
 string parent_link_name
-
-# The relative transform of the tool with respect to the parent link.
-geometry_msgs/Transform tool_pose
 
 # Robot links this tool is allowed to collide with.
 string[] allowed_collision_links
