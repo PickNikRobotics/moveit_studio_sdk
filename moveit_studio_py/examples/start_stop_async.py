@@ -38,6 +38,8 @@ import time
 from moveit_msgs.msg import MoveItErrorCodes
 from moveit_studio_py.objective_manager import ObjectiveManager
 
+done = False
+
 
 def done_cb(future: rclpy.task.Future) -> None:
     """
@@ -54,6 +56,8 @@ def done_cb(future: rclpy.task.Future) -> None:
     else:
         print("Objective FAILED")
         print(f"MoveItErrorCode Value: {result.error_code.val}")
+    global done
+    done = True
 
 
 def main():
@@ -77,14 +81,18 @@ def main():
     objective_manager = ObjectiveManager()
 
     print(f"Starting {args.objective_name}.")
+    global done
+    done = False
     objective_manager.start_objective(
         args.objective_name, blocking=False, async_callback=done_cb
     )
+    cancel_time = time.time() + args.wait_time
+    while not done and time.time() < cancel_time:
+        time.sleep(1)
 
-    time.sleep(args.wait_time)
-
-    print(f"Stopping {args.objective_name}.")
-    objective_manager.stop_objective()
+    if not done:
+        print(f"Stopping {args.objective_name}.")
+        objective_manager.stop_objective()
 
     rclpy.shutdown()
 
