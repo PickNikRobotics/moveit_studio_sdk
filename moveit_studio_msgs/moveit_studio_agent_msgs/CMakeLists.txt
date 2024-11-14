@@ -29,8 +29,9 @@ set(msg_files
 )
 
 set(srv_files
+  "srv/AddTool.srv"
   "srv/AttachTool.srv"
-  "srv/DetachTool.srv"
+  "srv/DetachOrRemoveTool.srv"
   "srv/ClearStoredParameters.srv"
   "srv/EditWaypoints.srv"
   "srv/GetAgentInfo.srv"
