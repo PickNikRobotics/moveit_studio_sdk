@@ -23,6 +23,7 @@ set(msg_files
   "msg/Json.msg"
   "msg/LicenseInfo.msg"
   "msg/Log.msg"
+  "msg/ObjectiveServerStatus.msg"
   "msg/PlanningGroup.msg"
   "msg/RobotJointState.msg"
   "msg/Waypoint.msg"
