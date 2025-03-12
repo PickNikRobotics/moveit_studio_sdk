@@ -21,3 +21,6 @@ string current_objective_name
 
 # Information about the license: expiration date, type, etc.
 moveit_studio_agent_msgs/LicenseInfo license
+
+# The name of the active robot configuration
+string current_robot_config_name
