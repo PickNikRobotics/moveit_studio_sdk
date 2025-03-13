@@ -27,3 +27,8 @@ string reason
 
 # The current teleoperation mode
 TeleoperationMode current_mode
+
+# The selected planning groups and associated controllers
+# The UI must fill these fields with the planning groups that need to be teleoperated.
+string[] planning_groups
+string[] controllers
