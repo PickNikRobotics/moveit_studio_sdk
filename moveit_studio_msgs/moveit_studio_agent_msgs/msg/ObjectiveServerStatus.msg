@@ -6,12 +6,12 @@ builtin_interfaces/Time ros_timestamp
 string objective_name
 
 # Possible objective_status values.
-# This corresponds with StatusTree::NodeStatus in the objective server.
 int8 OBJECTIVE_STATUS_UNKNOWN = 0
 int8 OBJECTIVE_STATUS_IDLE = 1
 int8 OBJECTIVE_STATUS_RUNNING = 2
 int8 OBJECTIVE_STATUS_SUCCESS = 3
 int8 OBJECTIVE_STATUS_FAILURE = 4
+int8 OBJECTIVE_STATUS_CANCELED = 5
 
 # The status of the objective.
 int8 objective_status
