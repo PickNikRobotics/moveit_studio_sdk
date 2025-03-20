@@ -1,8 +1,17 @@
-# Heartbeat timestamps of the Objective Server node
+# Heartbeat timestamps of the Objective Server node.
 builtin_interfaces/Time process_timestamp
 builtin_interfaces/Time ros_timestamp
 
-# Name and status descriptor of the current objective tree
-# See StatusTree::NodeStatus for valid objective_status values
+# Name and status descriptor of the current objective tree.
 string objective_name
-string objective_status
+
+# Possible objective_status values.
+# This corresponds with StatusTree::NodeStatus in the objective server.
+int8 OBJECTIVE_STATUS_UNKNOWN = 0
+int8 OBJECTIVE_STATUS_IDLE = 1
+int8 OBJECTIVE_STATUS_RUNNING = 2
+int8 OBJECTIVE_STATUS_SUCCESS = 3
+int8 OBJECTIVE_STATUS_FAILURE = 4
+
+# The status of the objective.
+int8 objective_status
