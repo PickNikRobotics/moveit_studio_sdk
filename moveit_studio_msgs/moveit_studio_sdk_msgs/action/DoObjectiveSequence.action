@@ -3,7 +3,7 @@
 # The name of the objective to run
 string objective_name
 
-# The raw behavior tree xml as a string. If both objective_name and objective_xml_string are populated, this will throw an error.
+# The raw behavior tree xml as a string. If both objective_name and objective_xml_string are populated, objective_name will take precedence and be run.
 string objective_xml_string
 
 # Default values of named parameters in the predefined objective will be overridden by the values provided in `parameter_overrides` below.
