@@ -6,12 +6,12 @@ builtin_interfaces/Time ros_timestamp
 string objective_name
 
 # Possible objective_status values.
-int8 OBJECTIVE_STATUS_UNKNOWN = 0
-int8 OBJECTIVE_STATUS_IDLE = 1
-int8 OBJECTIVE_STATUS_RUNNING = 2
-int8 OBJECTIVE_STATUS_SUCCESS = 3
-int8 OBJECTIVE_STATUS_FAILURE = 4
-int8 OBJECTIVE_STATUS_CANCELLED = 5
+string OBJECTIVE_STATUS_UNKNOWN = Unknown
+string OBJECTIVE_STATUS_IDLE = Idle
+string OBJECTIVE_STATUS_RUNNING = Running
+string OBJECTIVE_STATUS_SUCCESS = Success
+string OBJECTIVE_STATUS_FAILURE = Failure
+string OBJECTIVE_STATUS_CANCELLED = Cancelled
 
 # The status of the objective.
-int8 objective_status
+string objective_status
