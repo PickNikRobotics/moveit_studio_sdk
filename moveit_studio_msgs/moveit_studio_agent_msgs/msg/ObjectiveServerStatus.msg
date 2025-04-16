@@ -12,6 +12,7 @@ string OBJECTIVE_STATUS_RUNNING = Running
 string OBJECTIVE_STATUS_SUCCESS = Success
 string OBJECTIVE_STATUS_FAILURE = Failure
 string OBJECTIVE_STATUS_CANCELLED = Cancelled
+string OBJECTIVE_STATUS_LOADING = Loading
 
 # The status of the objective.
 string objective_status
