@@ -18,6 +18,7 @@ find_package(std_msgs REQUIRED)
 set(msg_files
   "msg/AgentInfo.msg"
   "msg/ClientInfo.msg"
+  "msg/EndEffector.msg"
   "msg/Event.msg"
   "msg/FaultStatus.msg"
   "msg/Json.msg"
