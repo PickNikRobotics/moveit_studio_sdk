@@ -19,9 +19,11 @@ rosidl_generate_interfaces(
   "action/FollowJointTrajectoryWithAdmittance.action"
   "msg/AdmittanceParameters.msg"
   "msg/CartesianSelectionVector.msg"
+  "msg/JointVelocityControllerState.msg"
   "msg/VelocityForceCommand.msg"
   "msg/VelocityForceControllerState.msg"
   "srv/ConfigureVelocityForceController.srv"
+  "srv/ConfigureJointVelocityController.srv"
   DEPENDENCIES
   action_msgs
   builtin_interfaces
