@@ -29,16 +29,10 @@ set(msg_files
   "msg/PointCloudPCD.msg"
 )
 
-set(action_files
-  "action/GetMasks2D.action"
-  "action/ShapeCompletion.action"
-)
-
 rosidl_generate_interfaces(${PROJECT_NAME}
   ${msg_files}
-  ${action_files}
   DEPENDENCIES
-    builtin_interfaces  
+    builtin_interfaces
     geometry_msgs
     moveit_msgs
     moveit_studio_sdk_msgs
