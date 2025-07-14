@@ -14,17 +14,10 @@ float64[] path_tolerance
 # If empty, default tolerances from configs will be used.
 float64[] goal_tolerance
 
-# The absolute force or torque threshold value for each Cartesian axis at which
-# the controller will stop executing if exceeded.
-# If the absolute value of a measured FTS value exceeds the corresponding
-# threshold, the trajectory goal is aborted with 'error_code' set to
-# FORCE_TORQUE_THRESHOLD_EXCEEDED.
-# If empty, default threshold values from configs will be used.
-float64[] absolute_force_torque_threshold
-
-# "Joint Trajectory with Admittance Controller" control parameters.
-# These include stiffness, damping, path tolerances, etc.
-moveit_pro_controllers_msgs/AdmittanceParameters admittance_parameters
+# "Joint Trajectory with Admittance Controller" admittance parameters.
+# These include mass, stiffness, damping, selected Cartesian axes, joint damping, force/torque threshold and end
+# effector parameters for each tip.
+moveit_pro_controllers_msgs/AdmittanceParameters[] admittance_parameters
 
 ---
 int32 error_code
