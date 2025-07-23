@@ -1,0 +1,22 @@
+# Service to add URDF objects in the planning scene.
+# The URDF object is given as a URDF string, and is added to the planning scene at the specified pose.
+# Once the URDF object is added, its collision shapes will be updated in the planning scene according to the URDF joint values,
+# if those are published in /joint_states.
+
+# The name of the URDF object to add to the planning scene.
+# It must not be in the planning scene already, otherwise an error will be returned.
+string urdf_name
+
+# The URDF string.
+string urdf_string
+
+# The pose at which the URDF object will be added.
+# Use a pose stamped so we can define the frame relative to which the URDF object will be added.
+geometry_msgs/PoseStamped urdf_pose
+
+---
+# If the operation was successful.
+bool success
+
+# If the operation was not successful, a message describing the error.
+string message

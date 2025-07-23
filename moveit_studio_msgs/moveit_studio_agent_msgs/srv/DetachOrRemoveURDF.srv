@@ -1,0 +1,15 @@
+# Service to detach URDF objects from the robot or remove them from the scene.
+
+# The name of the URDF object to detach or remove.
+# If using this srv with the 'detach_urdf' service, the URDF object must have been
+# attached to the robot previously.
+# If using this srv with the 'remove_urdf_from_scene', the URDF object must have been
+# added to the scene previously.
+string urdf_name
+
+---
+# If the operation was successful.
+bool success
+
+# If the operation was not successful, a message describing the error.
+string message

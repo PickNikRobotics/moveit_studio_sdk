@@ -1,0 +1,23 @@
+# Service to attach articulated URDF objects to the robot.
+# The URDF object given must already exist in the planning scene, and is attached to a specific link on the robot at the
+# current transform between the link and the URDF object.
+# Once the URDF object is attached, its collision shapes will be updated in the planning scene according to the URDF
+# joint values, if those are published in /joint_states.
+
+# The name of the URDF object to attach.
+# It must not be attached already, otherwise an error will be returned.
+string urdf_name
+
+# The name of the robot link to attach to.
+# It must exist in the robot URDF, otherwise an error will be returned.
+string parent_link_name
+
+# Robot links this URDF object is allowed to collide with.
+string[] allowed_collision_links
+
+---
+# If the operation was successful.
+bool success
+
+# If the operation was not successful, a message describing the error.
+string message
