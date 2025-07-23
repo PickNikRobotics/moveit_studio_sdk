@@ -32,8 +32,11 @@ set(msg_files
 
 set(srv_files
   "srv/AddTool.srv"
+  "srv/AddURDF.srv"
   "srv/AttachTool.srv"
+  "srv/AttachURDF.srv"
   "srv/DetachOrRemoveTool.srv"
+  "srv/DetachOrRemoveURDF.srv"
   "srv/ClearStoredParameters.srv"
   "srv/EditWaypoints.srv"
   "srv/GetAgentInfo.srv"
