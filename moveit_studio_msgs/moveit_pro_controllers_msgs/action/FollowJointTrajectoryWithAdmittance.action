@@ -36,6 +36,7 @@ int32 PATH_TOLERANCE_VIOLATED = -4
 int32 GOAL_TOLERANCE_VIOLATED = -5
 int32 ADMITTANCE_ERROR = -6
 int32 FORCE_TORQUE_THRESHOLD_EXCEEDED = -7
+int32 GOAL_ABORTED_DUE_TO_STITCHING = -8
 
 # Human readable description of the error code. Contains complementary
 # information that is especially useful when execution fails.
