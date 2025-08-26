@@ -14,6 +14,9 @@ string urdf_string
 # Use a pose stamped so we can define the frame relative to which the URDF object will be added.
 geometry_msgs/PoseStamped urdf_pose
 
+# The collision object color.
+std_msgs/ColorRGBA color
+
 ---
 # If the operation was successful.
 bool success
