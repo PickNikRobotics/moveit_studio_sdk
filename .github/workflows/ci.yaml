@@ -1,0 +1,26 @@
+name: CI
+
+on:
+  workflow_dispatch:
+  pull_request:
+  push:
+    branches:
+      - main
+
+jobs:
+  build_docker:
+    name: Docker build
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v3
+      - name: Setup Docker Buildx
+        uses: docker/setup-buildx-action@v2
+      - name: Build Dockerfile
+        uses: docker/build-push-action@v3
+        with:
+          context: .
+          push: false
+          tags: picknikrobotics/moveit-studio-sdk
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
