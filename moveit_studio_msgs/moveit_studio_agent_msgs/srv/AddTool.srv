@@ -1,0 +1,22 @@
+# Service to add tools in the planning scene.
+# The tool is given as a URDF string, and is attached to a specific frame in the planning scene with a relative pose.
+# Once the tool is added, its collision shapes will be updated in the planning scene according to the tool joint values,
+# if those are published in /joint_states.
+
+# The name of the tool to add to the planning scene.
+# It must not be in the planning scene already, otherwise an error will be returned.
+string tool_name
+
+# The tool URDF.
+string tool_urdf
+
+# The pose at which the tool will be added.
+# Use a pose stamped so we can define the frame relative to which the tool will be added.
+geometry_msgs/PoseStamped tool_pose
+
+---
+# If the operation was successful.
+bool success
+
+# If the operation was not successful, a message describing the error.
+string message
