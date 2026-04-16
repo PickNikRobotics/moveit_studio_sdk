@@ -1,0 +1,45 @@
+# Describes an action to start teleoperation in MoveIt Pro.
+
+## GOAL
+
+# If true, enables the UI to bring up a user interaction panel to mark teleoperation successful or failed.
+bool enable_user_interaction
+
+# (Optional) Prompt to display if user interaction is enabled.
+string user_interaction_prompt
+
+# (Optional) Specifies the initial teleoperation mode to start in.
+TeleoperationMode initial_mode
+
+---
+
+## RESULT
+
+# Whether the teleoperate action completed successfully.
+bool success
+
+# (Optional) Free-form string to describe the result.
+string reason
+
+---
+
+## FEEDBACK
+
+# The current teleoperation mode
+TeleoperationMode current_mode
+
+# The selected planning groups, associated controllers and tip links.
+# The UI must fill these fields with the planning groups that need to be teleoperated.
+string[] planning_groups
+string[] controllers
+string[] tip_links
+
+# If true, the teleoperation system should skip collision checks (environment collisions and self-collisions).
+# Only applies to JointJog and PoseJog modes.
+# Joint limit checks are always performed.
+bool skip_collision_checks
+
+# The velocity scale factor selected by the user in the UI (range 0.0 to 1.0).
+# This should be applied to all teleoperation motion commands to ensure consistent speed control
+# across different teleoperation modes.
+float64 velocity_scale_factor
