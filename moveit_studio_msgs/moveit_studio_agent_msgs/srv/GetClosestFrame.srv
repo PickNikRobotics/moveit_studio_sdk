@@ -1,0 +1,6 @@
+string input_frame_id
+string contains_substring
+---
+bool success
+string closest_frame_id
+float64 distance
