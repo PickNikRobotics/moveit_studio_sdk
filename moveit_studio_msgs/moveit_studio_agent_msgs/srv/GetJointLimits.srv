@@ -1,0 +1,5 @@
+# Service to query the per-joint URDF and effective (joint_limits.yaml) limits.
+
+---
+# Limits for each active single-DOF joint in the robot model.
+moveit_studio_agent_msgs/JointLimitsInfo[] joint_limits
