@@ -10,5 +10,5 @@ setup(
     maintainer="Ashton Larkin",
     maintainer_email="ashton.larkin@picknik.ai",
     description="Python interface for MoveIt Pro SDK",
-    license="Proprietary",
+    license="BSD-3-Clause",
 )
