@@ -6,6 +6,13 @@ To test using the SDK and MoveIt Pro separately, take a look at the Docker setup
 
 The full documentation for MoveIt Pro and the MoveIt Pro SDK is hosted at https://docs.picknik.ai/en/stable/index.html.
 
+## Branches
+
+`moveit_pro/src/sdk` is the source of truth. Release-tagged snapshots are copied
+to this repository as `release/<tag>`; use the release branch matching your
+MoveIt Pro version. The `main` branch is a legacy development line and is not a
+version-parity mirror.
+
 ## Docker setup for testing the MoveIt Pro SDK in a separate container
 
 The Docker workflow outlined here provides a way to test the MoveIt Pro SDK in isolation from MoveIt Pro.
