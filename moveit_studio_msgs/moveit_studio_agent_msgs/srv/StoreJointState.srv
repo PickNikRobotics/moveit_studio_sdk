@@ -1,0 +1,8 @@
+# Service to store a joint state in the Parameter Manager
+
+sensor_msgs/JointState joint_state
+sensor_msgs/MultiDOFJointState multi_dof_joint_state
+
+---
+
+bool success

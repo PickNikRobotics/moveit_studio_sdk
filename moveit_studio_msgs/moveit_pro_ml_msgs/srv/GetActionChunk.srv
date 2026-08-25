@@ -1,0 +1,100 @@
+# Asks a policy for the next chunk of joint-space actions. The caller gathers the
+# observation and sends it here; the policy is a pure function of this request and
+# holds no robot state across calls, so one running model can serve any caller and
+# the same contract fits a model in its own process, on a local GPU, or remote. A
+# source that does keep state (a replay cursor, a server-side action queue) resets
+# it when new_episode is true.
+
+# Task instruction for language-conditioned policies. Empty for policies that take
+# no prompt.
+string prompt
+
+# Current joint state, unnormalized. The policy reads the joint ordering from the
+# names and applies its own normalization. Cross-chunk continuity is handled via
+# previous_action_chunk and frozen_prefix_steps, not by projecting this state forward
+# to a future seam; this field is always the state observed now. The reference consumer
+# sends the commanded joint group's positions, with the configured gripper joint
+# appended last when one is configured; it fills positions only, so populate velocity
+# here if your policy conditions on it.
+sensor_msgs/JointState robot_state
+
+# One camera image per view the policy expects, paired with image_names so the
+# policy can match each image to a trained input. The arrays line up by index.
+# These are raw sensor_msgs/Image and each carries its own encoding; the policy
+# server owns any resize and normalization and must honor the encoding field (converting
+# bgr8 to rgb8 when needed). The reference consumer forwards camera frames as-is without
+# converting them.
+sensor_msgs/Image[] images
+string[] image_names
+
+# True on the first request of a new episode. A policy that holds state across
+# calls resets that state here; a stateless policy ignores it. The reference
+# consumer sets it true on its first call of a run and false afterward.
+bool new_episode
+
+# The unexecuted tail of the previous chunk, in the policy's own action space. The
+# caller stores policy_action_chunk from the last response and sends the still-unexecuted
+# part back so the policy can keep the new chunk consistent with it. The tail and the new
+# chunk start at the same moment, so the two advance together tick for tick; the first
+# frozen_prefix_steps of the tail are the motion that executes while inference runs. Empty
+# on the first call and for policies without real-time chunking.
+std_msgs/Float64MultiArray previous_action_chunk
+
+# Optional. The observation state the previous chunk was anchored to, in the same
+# form as robot_state. A delta-action policy re-references its carried
+# previous_action_chunk from this state into the current one; an absolute-action policy
+# does not need it. Empty for absolute-action policies, on the first call, and whenever
+# previous_action_chunk is empty.
+sensor_msgs/JointState previous_anchor_state
+
+# How many leading steps of the new chunk overlap motion already committed while this
+# inference runs; the policy freezes those steps to the previous chunk. This is the step
+# count real-time chunking calls the inference delay. The reference consumer derives it
+# from the inference latency it compensates for, and sends zero on the first call.
+uint32 frozen_prefix_steps
+
+# How many steps past the frozen prefix the policy keeps the new chunk close to the
+# previous one before letting it diverge: the width of real-time chunking's soft-guidance
+# region. (This is not the same as the literature's "execution horizon", the number of
+# steps executed before re-inference; that is the caller's committed_action_steps.) Zero
+# uses the policy's default. The guidance weight and schedule remain policy-server
+# configuration; the reference consumer sends its configured guidance_horizon value,
+# zero by default, so zero defers to the server's setting.
+uint32 guidance_horizon
+---
+# How the policy answered this request. The caller executes the chunk on CHUNK_PRODUCED, ends the
+# run as complete on NO_MORE_ACTIONS, and fails the run on ERROR and on any value it does not
+# recognize, so a response left unfilled (UNKNOWN) reads as a failure rather than as a completed run.
+# The chunk is read only on CHUNK_PRODUCED and ignored on every other status.
+uint8 UNKNOWN=0          # The field's default; no policy sets this.
+uint8 CHUNK_PRODUCED=1   # chunk carries the next actions.
+uint8 NO_MORE_ACTIONS=2  # This chunk source chose to stop: a replay reached its end, a queue drained.
+                         # Return the final actions in a CHUNK_PRODUCED response first, then
+                         # NO_MORE_ACTIONS on the following call, or those actions never execute.
+uint8 ERROR=3            # No chunk could be produced: the policy or its serving stack failed.
+uint8 status
+
+# The end-of-run reason for NO_MORE_ACTIONS, shown to the operator as information; the failure
+# reason for ERROR, shown to the operator as the run's failure. Empty for CHUNK_PRODUCED.
+string message
+
+# The chunk as absolute joint positions, one point per policy step. The joint names
+# give the ordering. Point spacing is set by the caller's configured control period
+# (the executor's dt); any time_from_start a policy sets is advisory and is ignored
+# by the reference consumer. The caller densifies and collision-checks this before
+# sending it to the controller.
+trajectory_msgs/JointTrajectory chunk
+
+# The control period in seconds per step the policy was trained at, advisory. The
+# caller plays the chunk at its own configured period and does not read this to time
+# the chunk, but warns when the two disagree, since a mismatch scales every joint
+# velocity. Non-negative: zero when the policy does not report a rate. A negative
+# value is a contract violation the caller flags rather than acts on.
+float64 native_control_period
+
+# The same chunk in the policy's own action space, with one row per step. Populate
+# the layout as two dimensions, steps then action width, so the caller can identify
+# the step axis when it returns the unexecuted tail. The caller stores this and
+# returns its tail as previous_action_chunk on the next call, without interpreting it.
+# Empty for policies without real-time chunking.
+std_msgs/Float64MultiArray policy_action_chunk
