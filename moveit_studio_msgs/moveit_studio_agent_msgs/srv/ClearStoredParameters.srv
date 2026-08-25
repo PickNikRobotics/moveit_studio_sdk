@@ -1,0 +1,5 @@
+# Service to clear all stored parameters in the Parameter Manager
+
+---
+
+bool success
