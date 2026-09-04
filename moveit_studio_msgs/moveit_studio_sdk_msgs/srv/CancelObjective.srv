@@ -1,0 +1,6 @@
+# Service definition to cancel a running Objective.
+
+# The request is empty.
+---
+# A response containing an error message and a status code.
+moveit_studio_sdk_msgs/RequestStatus status
