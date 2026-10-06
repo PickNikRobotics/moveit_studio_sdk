@@ -1,0 +1,15 @@
+# Service definition for requesting information from the server.
+
+# The client version.
+moveit_studio_agent_msgs/ClientInfo info
+
+# Include the (large) tree_nodes_model_xml validation manifest in the reply.
+# Status polls and identity handshakes leave this false so they never pay the
+# manifest's serialization or transport cost.
+bool include_tree_nodes_model false
+
+---
+# The status of the service call and an optional error message.
+moveit_studio_sdk_msgs/RequestStatus status
+
+moveit_studio_agent_msgs/AgentInfo info

@@ -1,0 +1,18 @@
+# Interface for configuring a joint velocity controller.
+# The configuration service will first load the configuration from the parameter server, and then override the fields
+# that are present in this request.
+# An empty request will reset the configuration to the default values (or those present in the parameter server).
+
+# Joint velocity and acceleration limits.
+bool set_joint_velocity_limits
+float64[] joint_velocity_limits
+
+bool set_joint_acceleration_limits
+float64[] joint_acceleration_limits
+
+---
+# True if the configuration was successfully set.
+bool success
+
+# Error message if success is false.
+string error_message
