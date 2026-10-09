@@ -1,0 +1,9 @@
+# Service to retrieve a robot state from the Parameter Manager
+
+bool has_timeout
+builtin_interfaces/Duration timeout
+
+---
+
+bool success
+moveit_msgs/RobotState robot_state

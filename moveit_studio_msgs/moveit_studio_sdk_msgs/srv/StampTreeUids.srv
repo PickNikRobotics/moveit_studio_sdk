@@ -1,0 +1,15 @@
+# Compute the BT.CPP UID per node by walking the XML through BehaviorTreeFactory.
+# UIDs are returned grouped per `<BehaviorTree ID="...">` in DFS document order;
+# callers walk the same XML in matching order and zip UIDs onto their nodes.
+
+# The saved-tree XML to stamp.
+string xml_text
+---
+# True if stamping succeeded.
+bool success
+
+# Empty on success; BT.CPP exception text on failure.
+string error_message
+
+# One entry per BehaviorTree subtree visited.
+moveit_studio_sdk_msgs/TreeUids[] trees
