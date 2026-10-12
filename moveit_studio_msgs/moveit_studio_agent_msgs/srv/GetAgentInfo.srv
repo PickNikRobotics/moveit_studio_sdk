@@ -1,0 +1,10 @@
+# Service definition for requesting information from the server.
+
+# The client version.
+moveit_studio_agent_msgs/ClientInfo info
+
+---
+# The status of the service call and an optional error message.
+moveit_studio_sdk_msgs/RequestStatus status
+
+moveit_studio_agent_msgs/AgentInfo info

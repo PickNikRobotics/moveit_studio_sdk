@@ -1,0 +1,15 @@
+# Service to detach tools from the robot or remove them from the scene.
+
+# The name of the tool to detach or remove.
+# If using this srv with the 'detach_tool' service, the tool must have been
+# attached to the robot previously.
+# If using this srv with the 'remove_tool_from_scene', the tool must have been
+# added to the scene previously.
+string tool_name
+
+---
+# If the operation was successful.
+bool success
+
+# If the operation was not successful, a message describing the error.
+string message
