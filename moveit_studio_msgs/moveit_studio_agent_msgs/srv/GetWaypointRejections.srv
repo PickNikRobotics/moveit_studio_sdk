@@ -1,0 +1,9 @@
+# Returns one entry per saved waypoint that failed validation for the loaded robot model.
+# The waypoints that passed validation are returned by GetWaypoints. The call fails with an
+# error message only when the waypoints file cannot be read; no rejections is a success.
+---
+# The status of the service call and an optional error message
+moveit_studio_sdk_msgs/RequestStatus status
+
+# Waypoints in the file that failed validation for the loaded robot model, with the reason for each
+moveit_studio_agent_msgs/WaypointRejection[] rejected_waypoints

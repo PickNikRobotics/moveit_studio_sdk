@@ -1,0 +1,10 @@
+# Service definition to verify XML using BehaviorTree.CPP's VerifyXML function.
+
+# The XML string to verify
+string xml_text
+---
+# True if the XML is valid, false otherwise
+bool is_valid
+
+# Error message if validation failed (empty if is_valid is true)
+string error_message

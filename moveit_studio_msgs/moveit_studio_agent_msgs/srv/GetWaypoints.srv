@@ -1,0 +1,8 @@
+# Returns the saved waypoints that are valid for the loaded robot model; GetWaypointRejections
+# reports the others. Fails with an error message when no saved waypoint is valid.
+---
+# The status of the service call and an optional error message
+moveit_studio_sdk_msgs/RequestStatus status
+
+# All the valid waypoints stored by the agent
+moveit_studio_agent_msgs/Waypoint[] waypoints

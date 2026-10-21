@@ -1,0 +1,37 @@
+uint8 START=1
+uint8 RESET=2
+uint8 STOP=3
+uint8 STATUS=4
+uint8 command
+bool reset_pose
+# This service shares the node's default mutually-exclusive callback group with the frame path, so a
+# call is queued behind any in-flight feature inference. Size client timeouts against one stereo
+# inference rather than a nominal RPC, or a loaded runtime reads as unresponsive.
+---
+uint8 STOPPED=0
+uint8 RUNNING=1
+uint8 FAULTED=2
+# Never published by this runtime. It exists so a caller that got no response at all -- the service timed out,
+# or the component is not loaded -- has a value to report that is not FAULTED, which means the runtime answered
+# and said it is faulted. A status Behavior needs those two apart to say whether odometry is broken or absent.
+uint8 UNKNOWN=3
+bool success
+uint8 runtime_state
+# Deliberately an open string set rather than typed constants like runtime_state above: the tracking
+# states a future runtime reports may grow, and a client that switches on an unknown value should
+# fall through rather than fail to build. Current values: stopped, initializing, tracking, degraded,
+# lost, faulted, plus unknown if the runtime ever reports a state it cannot name. Treat an
+# unrecognized value as degraded rather than as healthy.
+string tracking_state
+# Number of complete exact-time stereo packets the runtime accepted and published a pose for.
+uint64 synchronized_frames
+# Number of synchronized packets consumed without producing a pose, by input validation, model failure, or tracking
+# failure. Distinguishes "no images arriving" from "every image rejected"; use middleware statistics for DDS
+# transport loss below this runtime. A packet that seeds the tracker's keyframe, at start and after each
+# reinitialization, is neither accepted nor rejected: one pair cannot yield a pose, and tracking_state reports
+# initializing for it.
+uint64 rejected_frames
+# Count of tracking history resets, accumulated across tracker instances for the life of the process. A climbing
+# value means a repeating failure cycle rather than a single recoverable dropout.
+uint64 reinitializations
+string message
